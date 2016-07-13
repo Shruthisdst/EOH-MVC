@@ -78,12 +78,9 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<?=BASE_URL?>listing/alphabet/A">Encyclopaedia of Hinduism</a></li>
                     <li><a href="#"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo of the University of Mysore" class="logo"></a></li>
-                    <li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="<?=BASE_URL?>">&nbsp; About<span class="caret"></span>&nbsp; </a>				
-						<ul class="dropdown-menu">
-						  <li><a href="<?=BASE_URL?>page/flat/Home">EOH</a></li>
-						</ul>
-					</li>
+                    <li><a href="<?=BASE_URL?>page/flat/Home">About</a></li>
+                    <li></li>
+                    <li><a href="#">Acknowledgements</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
