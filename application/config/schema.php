@@ -7,6 +7,7 @@ define('METADATA_TABLE_SCHEMA', 'CREATE TABLE IF NOT EXISTS`' . METADATA_TABLE .
   `vnum` varchar(50) DEFAULT NULL, 
   `word` varchar(100) NOT NULL, 
   `description` varchar(200000) NOT NULL,
+  `aliasWord` varchar(100) NOT NULL, 
   PRIMARY KEY (`id`)
 ) AUTO_INCREMENT = 10001 ENGINE=MyISAM DEFAULT CHARSET=utf8mb4');
 
