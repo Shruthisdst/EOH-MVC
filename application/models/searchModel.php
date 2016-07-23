@@ -84,6 +84,7 @@ class searchModel extends Model {
 		}
 
 		$data['filter'] = $filter;
+		$data['words'] = array_merge($data['words'], $data['words']);
 
 		return $data;
 	}
@@ -93,7 +94,9 @@ class searchModel extends Model {
 		$data = $this->regexFilter($data);
 
 		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
-		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE ' . $sqlFilter . $orderBy;
+		$sqlFilteralias = $sqlFilter;
+		$sqlFilteralias = str_replace('word', 'aliasWord', $sqlFilteralias);
+		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE (' . $sqlFilter . ') | ('. $sqlFilteralias .')' . $orderBy;
 
 		$data['query'] = $sqlStatement;
 
