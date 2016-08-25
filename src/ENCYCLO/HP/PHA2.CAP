@@ -1,0 +1,73 @@
+@PAGET = pa<210>camah<193>yaj<210>as	475	Pa<210>c<193>nana
+
+@Z_BOXTEXT = pancanana<R>
+siva
+
+@PAGET = Pa<210>c<193>nana	476	pa<210>c<193><209>ga
+
+@PAGET = Pa<210>catantra	486	Pa<210>cava<219><200>
+
+@PAGET = Pa<210>cava<219><200>	487	pa<210>c<193>yatanap<220>j<193>
+
+@SPACE = 
+
+@SPACE = 
+
+@Z_TBL_BEG = COLUMNS(12), DIMENSION(IN), COLWIDTHS(.2500,E1,.6250,E1,.6250,E1,.6250,E1,.6250,E1,E1,.2500), 
+HGUTTER(.0555), VGUTTER(.0139), KEEP(OFF), L1(R2C1..R8C3), L1(R1C1..R2C3), 
+L1(R2C3..R8C5), L1(R1C3..R2C5), L1(R1C5..R2C7), L1(R2C5..R8C7), L1(R2C7..R8C9), 
+L1(R1C7..R2C9), L1(R1C9..R2C11), L1(R2C9..R8C11), L1(R3C1..R3C11), 
+L0(R2C1..R2C11)
+
+@Z_TBL_BODY = COLUM, TC2, TABLE TEXT, TABLE TEXT, TABLE TEXT, TABLE 
+TEXT, TABLE TEXT, TABLE TEXT, TABLE TEXT, TABLE TEXT, TABLE TEXT, 
+COLUM
+
+NORTH, <MJ243>EAST<DJ0>, +, +, +, +, +, +, +, +, +, SOUTH
+
+@Z_TBL_BODY = TABLE TEXT, TC1, TABLE TEXT, TC1, TABLE TEXT, TC1, TABLE 
+TEXT, TC1, TABLE TEXT, TC1, TABLE TEXT, TABLE TEXT
+
+^, Vi<218><207>u pa<210>c<193>yatana, +, <185>iva<R>
+pa<210>c<193>yatana, +, S<220>rya<R>
+pa<210>c<193>yatana, +, Dev<200><R>
+pa<210>c<193>yatana, +, Ga<207>apati<R>
+pa<210>c<193>yatana, +, ^
+
+@Z_TBL_BODY = TABLE TEXT, SPACE, SPACE, SPACE, SPACE, SPACE, SPACE, 
+SPACE, SPACE, SPACE, SPACE, TABLE TEXT
+
+^, , , , , , , , , , , ^
+
+@Z_TBL_BODY = TABLE TEXT, TC2, TC2, TC2, TC2, TC2, TC2, TC2, TC2, 
+TC2, TC2, TABLE TEXT
+
+^, <185>iva, Ga<207>apati, Vi<218><207>u, S<220>rya, <185>iva, Ga<207>apati, 
+Vi<218><207>u, <185>iva, Vi<218><207>u, <185>iva, ^
+
+^, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, ^
+
+@Z_TBL_BODY = TABLE TEXT, TC2, TABLE TEXT, TC2, TABLE TEXT, TC2, TABLE 
+TEXT, TC2, TABLE TEXT, TC2, TABLE TEXT, TABLE TEXT
+
+^, Vi<218><207>u<R>
+1, +, <185>iva<R>
+1, +, S<220>rya<R>
+1, +, Dev<200><R>
+1, +, Ga<207>apati<R>
+1, +, ^
+
+@Z_TBL_BODY = TABLE TEXT, TC2, TC2, TC2, TC2, TC2, TC2, TC2, TC2, 
+TC2, TC2, TABLE TEXT
+
+^, Dev<200>, S<220>rya, Dev<200>, Ga<207>apati, Dev<200>, Vi<218><207>u, 
+S<220>rya, Ga<207>apati, Dev<200>, S<220>rya, ^
+
+^, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, ^
+
+^, <MJ8>WEST<DJ0>, +, +, +, +, +, +, +, +, +, ^
+
+@Z_TBL_END = 
+
+
+

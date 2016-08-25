@@ -1,0 +1,51 @@
+@FN = * A very large number of manuscripts of tantras are still lying 
+in the libraries of Oriental Institutes and other institutions.
+
+@TL = 
+
+@Z_TBL_BEG = COLUMNS(7), DIMENSION(IN), COLWIDTHS(.8450,.7383,.5417,.8400,E1,1.3392,.6667), 
+HGUTTER(.1389), VGUTTER(.0979), BOX(Z_SINGLE), HGRID(Z_SINGLE), VGRID(Z_SINGLE), 
+KEEP(OFF)
+
+@Z_TBL_BODY = TC1, TABLE TEXT, TABLE TEXT, TABLE TEXT, TABLE TEXT, 
+TABLE TEXT, TABLE TEXT
+
+TABLE OF CAKRAS, +, +, +, +, +, +
+
+@Z_TBL_BODY = TC1, TC1, TC1, TC1, TC1, TC1, TC1
+
+Name, Location, No.<|>of<R>
+Petals, Colour, M<193>t<216>k<193>s, Elements, B<200>j<193>k<218>ara
+
+@Z_TBL_BODY = TL, TL, TL, TL, TLJ, TLJ, TC2M
+
+M<220>l<193>dh<193>ra, perineum, <+><+><+>4, blood-red, va,, <217>a,, 
+<218>a,, sa, p<216>th<200> or earth, lam
+
+Sv<193>dhi<218><219><193>na, base of<R>
+genital organ, <+><+><+>6, vermillion, ba,, bha,, ma,, ya,, ra,, la, 
+ap or water, vam
+
+Ma<207>ip<220>ra, navel, <+><+>10, blue, <195>a,, <195>ha,, <207>a,, 
+ta,, tha,, da,, dha,, na,, pa,, pha, tejas or fire, ram
+
+An<193>hata, heart, <+><+>12, red, ka,, kha,, ga,, gha,, <209>a,, ca,, 
+cha,, ja,, jha,, <210>a,, <219>a,, <219>ha, v<193>yu or air, yam
+
+@Z_TBL_BODY = TL, TL, TL, TLJ, TLJ, TLJ, TC2M
+
+Vi<217>uddha, throat, <+><+>16, smoke-grey, all the 16 owels, <193>k<193><217>a 
+or ether, ham
+
+@Z_TBL_BODY = TL, TL, TL, TL, TLJ, TLJ, TC2M
+
+<161>j<210><193>, middle of<R>
+eyebrows, <+><+><+>2, white, ha,, k<218>a, beyond the elements <160>mahat, 
+om
+
+@Z_TBL_END = 
+
+
+
+@PAGET = Tantras	392	tapas
+
