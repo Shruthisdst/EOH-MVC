@@ -1,13 +1,10 @@
 <?php
-
 class viewHelper extends View {
-
 	public function __construct() {
-
 	}
-
     public function preProcessDescription($description,$word,$vnum,$id){
         $xmlObj=simplexml_load_string($description);
+        //~ echo dom_import_simplexml($xmlObj)->textContent;
             $footNote = '';
             echo '<div class="word">';
 			echo '<div class="whead">';
@@ -42,7 +39,6 @@ class viewHelper extends View {
 			{
 				$xmlVal = $child->asXML();
 				$xmlVal = $this->replaceHeadings($xmlVal);
-
 				if(preg_match('#<aside>(.*?)<\/aside>#', $xmlVal, $match))
 				{
 					$xmlVal = preg_replace('/<aside>(.*)<\/aside>/', "<span class=\"fntsymbol\">*</span>", $xmlVal);
@@ -115,5 +111,4 @@ class viewHelper extends View {
         return $vnum;
 	}
 }
-
 ?>

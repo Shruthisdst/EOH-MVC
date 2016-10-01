@@ -21,11 +21,12 @@ class search extends Controller {
 		if($data) {
 
 			$data = $this->model->preProcessPOST($data);
-			
+			//~ var_dump($data);
 			$query = $this->model->formGeneralQuery($data, METADATA_TABLE);
+			//~ print_r($query);
 
 			$result = $this->model->executeQuery($query);
-			
+			//~ var_dump($result);
 			($result) ? $this->view('search/result', $result) : $this->view('error/noResults', 'search/index/');
 		}
 		else {

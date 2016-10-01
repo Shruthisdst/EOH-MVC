@@ -175,7 +175,7 @@ a.moretag {
 }
 .sub-nav > li > a, .ui-autocomplete li{
     font-family: 'GentiumPlus-R';
-    font-size: 12px;
+    font-size: 10px;
     line-height: 21px;
     letter-spacing: 1.5px;
     font-weight: 400;
@@ -221,7 +221,7 @@ a.moretag {
   border-radius: 0;
 }
 .ui-autocomplete{
-  width: 164px;
+  width: 250px;
 }
 .ui-state-hover,
 .ui-widget-content .ui-state-hover,

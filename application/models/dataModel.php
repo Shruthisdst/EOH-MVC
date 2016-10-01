@@ -28,6 +28,7 @@ class dataModel extends Model {
 		}
 		return $words;
 	}
+
 	public function getMetadaData() {
 		
 		$fileName = XML_SRC_URL . DB_PREFIX . '.xml';
@@ -40,18 +41,47 @@ class dataModel extends Model {
 		$xml = simplexml_load_file($fileName);
 
 		$metaData = array();
-		//~ $wordList = $this->getWords();
-		//~ array_shift($wordList);
+		$wordList = $this->getWords();
+		array_shift($wordList);
 
 		foreach ($xml->volume as $volume)
 		{
 			$data['vnum'] = (string) $volume['vnum'];
-			foreach ($volume->entry as $entry) {
+			foreach ($volume->entry as $entry)
+			{
 				$data['word'] = (string) $entry->head->word;
 				$data['description'] = $entry->saveXML();
 				$aliasword = $data['word'];
 				$aliasword = $this->getaliasWords($aliasword);
 				$data['aliasWord'] = $aliasword;
+				
+				foreach($wordList as $eachWord)
+				{
+					if (preg_match('/^[Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ|]/', $eachWord['word']))
+					{
+						$data['description'] = preg_replace('/' . $eachWord['word'] . '/', '<span class="linkword">' . $eachWord['word'] . '</span>', $data['description']);
+					}
+					elseif (preg_match('/[Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ|]$/', $eachWord['word']))
+					{
+						$data['description'] = preg_replace('/' . $eachWord['word'] . '/', '<span class="linkword">' . $eachWord['word'] . '</span>', $data['description']);
+					}
+					else
+					{
+						$data['description'] = preg_replace('/\b' . $eachWord['word'] . '\b/', '<span class="linkword">' . $eachWord['word'] . '</span>', $data['description']);
+					}
+					$data['description'] = preg_replace('/<word><span class="linkword">(.*)<\/span><\/word>/', '<word>\1</word>', $data['description']);
+					$data['description'] = preg_replace('/<word>(.*)<span class="linkword">(.*)<\/span>(.*)<\/word>/', '<word>\1\2\3</word>', $data['description']);
+					$data['description'] = preg_replace('/<note>(.*)<span class="linkword">(.*)<\/span>(.*)<\/note>/', '<note>\1\2\3</note>', $data['description']);
+				}
+				$data['description'] = preg_replace('/<span class="linkword">([\w]+?)<\/span>-/', '\1-', $data['description']);
+				$data['description'] = preg_replace('/-<span class="linkword">([\w]+?)<\/span>/', '-\1', $data['description']);
+				$data['description'] = preg_replace('/"<span class="linkword">(.*?)<\/span>/', '"\1', $data['description']);
+				$data['description'] = preg_replace('/<span class="linkword">(.*?)<\/span>">/', '\1">', $data['description']);
+				$data['description'] = preg_replace('/([a-zA-Z])<span class="linkword">(.*?)<\/span>/', '\1\2', $data['description']);
+				$data['description'] = preg_replace('/<span class="linkword">([\w]+?)<\/span>([a-zA-Z])/', '\1\2', $data['description']);
+				$data['description'] = preg_replace('/([Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ|])<span class="linkword">(.*?)<\/span>/', '\1\2', $data['description']);
+				$data['description'] = preg_replace('/<span class="linkword">([\w]+?)<\/span>([Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ|])/', '\1\2', $data['description']);
+				
 				array_push($metaData, $data);
 			}
 		}

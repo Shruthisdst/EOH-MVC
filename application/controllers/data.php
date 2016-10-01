@@ -13,6 +13,7 @@ class data extends Controller {
 	}
 
 	public function InsertData(){
+		ini_set('max_execution_time', 800);
 
 		$metaData = $this->model->getMetadaData();
 		
@@ -21,7 +22,7 @@ class data extends Controller {
 		$dbh = $this->model->db->connect(DB_NAME);
 
 		$this->model->db->dropTable(METADATA_TABLE, $dbh);
-		
+
 		$this->model->db->createTable(METADATA_TABLE, $dbh, METADATA_TABLE_SCHEMA);
 
 		foreach ($metaData as $row)

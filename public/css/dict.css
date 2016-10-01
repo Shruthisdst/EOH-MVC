@@ -266,3 +266,9 @@ table tr td{
 .img-responsive{
 	margin-top: 5em;
 }
+.linkword{
+/*
+	border-bottom: 1px dotted #CCC;
+*/
+	border-bottom: 1px dotted red;
+}
