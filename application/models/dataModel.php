@@ -57,11 +57,11 @@ class dataModel extends Model {
 				
 				foreach($wordList as $eachWord)
 				{
-					if (preg_match('/^[Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ|]/', $eachWord['word']))
+					if (preg_match('/^[Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ]/', $eachWord['word']))
 					{
 						$data['description'] = preg_replace('/' . $eachWord['word'] . '/', '<span class="linkword">' . $eachWord['word'] . '</span>', $data['description']);
 					}
-					elseif (preg_match('/[Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ|]$/', $eachWord['word']))
+					elseif (preg_match('/[Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ]$/', $eachWord['word']))
 					{
 						$data['description'] = preg_replace('/' . $eachWord['word'] . '/', '<span class="linkword">' . $eachWord['word'] . '</span>', $data['description']);
 					}
@@ -73,15 +73,11 @@ class dataModel extends Model {
 					$data['description'] = preg_replace('/<word>(.*)<span class="linkword">(.*)<\/span>(.*)<\/word>/', '<word>\1\2\3</word>', $data['description']);
 					$data['description'] = preg_replace('/<note>(.*)<span class="linkword">(.*)<\/span>(.*)<\/note>/', '<note>\1\2\3</note>', $data['description']);
 				}
-				$data['description'] = preg_replace('/<span class="linkword">([\w]+?)<\/span>-/', '\1-', $data['description']);
-				$data['description'] = preg_replace('/-<span class="linkword">([\w]+?)<\/span>/', '-\1', $data['description']);
 				$data['description'] = preg_replace('/"<span class="linkword">(.*?)<\/span>/', '"\1', $data['description']);
 				$data['description'] = preg_replace('/<span class="linkword">(.*?)<\/span>">/', '\1">', $data['description']);
-				$data['description'] = preg_replace('/([a-zA-Z])<span class="linkword">(.*?)<\/span>/', '\1\2', $data['description']);
-				$data['description'] = preg_replace('/<span class="linkword">([\w]+?)<\/span>([a-zA-Z])/', '\1\2', $data['description']);
-				$data['description'] = preg_replace('/([Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ|])<span class="linkword">(.*?)<\/span>/', '\1\2', $data['description']);
-				$data['description'] = preg_replace('/<span class="linkword">([\w]+?)<\/span>([Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ|])/', '\1\2', $data['description']);
-				
+				$data['description'] = preg_replace('/([a-zA-Z]+)<span class="linkword">(.*?)<\/span>/', '\1\2', $data['description']);
+				$data['description'] = preg_replace('/([Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ]+)<span class="linkword">(.*?)<\/span>/', '\1\2', $data['description']);
+				$data['description'] = preg_replace('/<span class="linkword">([a-zA-Z]*[Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ]*[a-zA-Z]*[Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ]*)<\/span>([a-zA-Z]+|[Ā|ā|Ś|ś|Ū|ū|Ṣ|ṣ|Ī|ī|Ṅ|ṅ|Ṛ|ṛ|Ṭ|ṭ|Ṇ|ṇ|Ḍ|ḍ|Ṁ|ṁ|Ñ|ñ|Ḥ|ḥ|Ḷ|ḷ|Ṝ|ṝ]+[a-zA-Z]*)/', '\1\2', $data['description']);
 				array_push($metaData, $data);
 			}
 		}
