@@ -71,7 +71,7 @@
             <div class="collapse navbar-collapse" id="navbar-primary-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<?=BASE_URL?>listing/alphabet/A">Encyclopaedia of Hinduism</a></li>
-                    <li><a href="#"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo of the University of Mysore" class="logo"></a></li>
+                    <li><a href="<?=BASE_URL?>page/flat/Home"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo of the University of Mysore" class="logo"></a></li>
                     <li><a href="<?=BASE_URL?>page/flat/Home">About</a></li>
                     <li></li>
                     <li><a href="#">Acknowledgements</a></li>
@@ -90,7 +90,7 @@
                     <li><a>·</a></li>
                     <li><a>Search</a></li>
                     <li id="searchForm">
-                        <form class="navbar-form" role="search" action="<?=BASE_URL?>search/field/" method="get">
+                        <form  id="searchWord" class="navbar-form" role="search" action="<?=BASE_URL?>search/field/" method="get" onsubmit="return checkforempty()">
                             <div class="input-group add-on">
                                 <input type="text" class="form-control" placeholder="Word" name="word" id="word">
                                 <div class="input-group-btn">
@@ -104,6 +104,16 @@
         </div>
     </div>
     <script type="text/javascript">
+
+function checkforempty()
+{
+    var word = document.getElementById("word").value;
+
+    if(!(word)){ 
+        alert("Please enter the word to search");
+        return false;
+    }
+} 
 
     $( function() {
    var wordList = [
@@ -3901,6 +3911,7 @@
         },
         select: function( event, ui ) {
             $( "#word" ).val( ui.item.value); //ui.item is your object from the array
+            $("#searchWord").submit();
             return false;
         }
     });
