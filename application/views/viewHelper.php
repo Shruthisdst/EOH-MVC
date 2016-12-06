@@ -179,7 +179,7 @@ class viewHelper extends View {
 
 		foreach($words as $word){
 
-			$text = preg_replace('/'. $word .'/i', '<span class="searchword">'.$word.'</span>' , $text);
+			$text = preg_replace('/('. $word .')/i', '<span class="searchword">$1</span>' , $text);
 		}
 
 		return $text;
