@@ -2,7 +2,12 @@
 class viewHelper extends View {
 	public function __construct() {
 	}
-    public function preProcessDescription($description,$word,$vnum,$id){
+    public function preProcessDescription($description,$word,$vnum,$id,$key){
+
+		$searchword	= $this->getSearchWord();
+		$searchwords = preg_split('/ /', $searchword);
+		array_push($searchwords, $searchword);
+
         $xmlObj=simplexml_load_string($description);
         //~ echo dom_import_simplexml($xmlObj)->textContent;
             $footNote = '';
@@ -24,7 +29,16 @@ class viewHelper extends View {
 			{
 				if($note != '')
 				{
-					echo '<span>'.$note.'</span>';
+					echo '<span>'; 
+					if($key == 'C'){
+
+						echo $this->replaceSearchWords($note,$searchwords); 
+					}
+					else{
+
+						echo $note;
+					}
+					echo '</span>';
 				}
 				else
 				{
@@ -42,7 +56,15 @@ class viewHelper extends View {
 				if(preg_match('#<aside>(.*?)<\/aside>#', $xmlVal, $match))
 				{
 					$xmlVal = preg_replace('/<aside>(.*)<\/aside>/', "<span class=\"fntsymbol\">*</span>", $xmlVal);
-					echo $xmlVal;
+					if($key == 'C'){
+
+						echo $this->replaceSearchWords($xmlVal,$searchwords); 
+					}
+					else{
+
+						echo $xmlVal;
+					}
+					// echo $xmlVal;
 					$footNote = $match[1];
 				}
 				elseif(preg_match('#<figure>#', $xmlVal, $match))
@@ -56,19 +78,43 @@ class viewHelper extends View {
 						{
 							$figNum = $figNum + $f;
 							echo "<span class='crossref'><a href='". PUBLIC_URL . "images/thumbs/" . $word . "_".$figNum.".png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='". PUBLIC_URL . "images/main/". $word . ""."_".$figNum.".png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
-							echo $xmlVal;
+							if($key == 'C'){
+
+								echo $this->replaceSearchWords($xmlVal,$searchwords); 
+							}
+							else{
+
+								echo $xmlVal;
+							}							
+							// echo $xmlVal;
 						}
 						$f++;
 					}
 					else
 					{
 						echo "<span class='crossref'><a href='" . PUBLIC_URL . "images/thumbs/" . $word . ".png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='". PUBLIC_URL . "images/main/".$word.".png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
-						echo $xmlVal;
+						if($key == 'C'){
+
+							echo $this->replaceSearchWords($xmlVal,$searchwords); 
+						}
+						else{
+
+							echo $xmlVal;
+						}
+						// echo $xmlVal;
 					}
 				}
 				else
 				{
-					echo $xmlVal;
+					if($key == 'C'){
+
+						echo $this->replaceSearchWords($xmlVal,$searchwords); 
+					}
+					else{
+
+						echo $xmlVal;
+					}					
+					// echo $xmlVal;
 				}
 			}
 			if($footNote != '')
@@ -109,6 +155,34 @@ class viewHelper extends View {
 		$vnum = preg_replace('/^0+/', '', $vnum);
         $vnum = preg_replace('/\-0+/', '-', $vnum);
         return $vnum;
+	}
+
+	public function displayTitle($key){
+
+		if($key == 'A'){
+			echo '<h1 id="A_results">Strict Results</h1>';
+		}		
+		else if($key == 'B'){
+			echo '<h1 id="B_results">Wildcard Results</h1>';
+		}		
+		else if($key == 'C'){
+			echo '<h1 id="C_results">Description Results</h1>';
+		}
+	}
+
+	public function getSearchWord(){
+
+		return filter_input_array(INPUT_GET, FILTER_SANITIZE_SPECIAL_CHARS)['word'];
+	}
+
+	public function replaceSearchWords($text,$words){
+
+		foreach($words as $word){
+
+			$text = preg_replace('/'. $word .'/i', '<span class="searchword">'.$word.'</span>' , $text);
+		}
+
+		return $text;
 	}
 }
 ?>

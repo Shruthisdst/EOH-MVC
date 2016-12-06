@@ -15,18 +15,25 @@ class search extends Controller {
 	public function field() {
 		
 		$data = $this->model->getGetData();
+		// var_dump($data);
 		unset($data['url']);
 
 		// Check if any data is posted. For this journal name should be excluded.
 		if($data) {
 
 			$data = $this->model->preProcessPOST($data);
-			//~ var_dump($data);
-			$query = $this->model->formGeneralQuery($data, METADATA_TABLE);
-			//~ print_r($query);
 
-			$result = $this->model->executeQuery($query);
-			//~ var_dump($result);
+			$query = $this->model->formStrictQuery($data, METADATA_TABLE);
+			$result['A'] = $this->model->executeQuery($query['query'],$query['words']);
+
+			$query = $this->model->formGeneralQuery($data, METADATA_TABLE);
+			$result['B'] = $this->model->executeQuery($query['query'],$query['words']);
+
+			$query = $this->model->formDescriptionQuery($data, METADATA_TABLE, 'ORDER BY word');
+			$result['C'] = $this->model->executeQuery($query['query'],$query['description']);
+
+			$result = array_filter($result);
+
 			($result) ? $this->view('search/result', $result) : $this->view('error/noResults', 'search/index/');
 		}
 		else {

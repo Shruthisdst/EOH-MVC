@@ -607,3 +607,7 @@ a.moretag {
 .alphabet a:hover{
   border-top: 2px solid #e5ae47;
 }
+.searchword{
+  background-color: #444;
+  color: #FFF;
+}

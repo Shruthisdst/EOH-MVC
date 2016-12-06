@@ -37,12 +37,12 @@ class searchModel extends Model {
 		return $data;
 	}
 
-	public function executeQuery($data) {
+	public function executeQuery($query,$parameters) {
 
 		$dbh = $this->db->connect(DB_NAME);
 
-		$sth = $dbh->prepare($data['query']);
-		$sth->execute($data['words']);
+		$sth = $dbh->prepare($query);
+		$sth->execute($parameters);
 
 		$data = null;
 		$i = 0;
@@ -75,31 +75,61 @@ class searchModel extends Model {
 		    $words = array_filter($words, 'strlen');
 		    
 			$data['words'] = array_merge($data['words'], $words);
-
 		    foreach($words as $word) {
 		    	$filterArr[] = $key . ' REGEXP ?';
 		    }
 
 		    $filter[$key] = implode(' ' . SEARCH_OPERAND . ' ', $filterArr);
+
 		}
 
 		$data['filter'] = $filter;
-		$data['words'] = array_merge($data['words'], $data['words']);
 
 		return $data;
 	}
 
 	public function formGeneralQuery($data, $table, $orderBy = '') {
 
+		$word = $data['word'];
+
 		$data = $this->regexFilter($data);
+		$data['words'] = array_merge($data['words'], $data['words']);
 
 		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
+
 		$sqlFilteralias = $sqlFilter;
 		$sqlFilteralias = str_replace('word', 'aliasWord', $sqlFilteralias);
-		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE (' . $sqlFilter . ') | ('. $sqlFilteralias .')' . $orderBy;
+		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE (' . $sqlFilter . ') | ('. $sqlFilteralias .') and word != ?' . $orderBy;
 
 		$data['query'] = $sqlStatement;
+		array_push($data['words'], $word);
 
+		return $data;
+	}
+
+	public function formStrictQuery($data, $table, $orderBy = '') {
+
+		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE word = ?  ' . $orderBy;
+
+		$data['query'] = $sqlStatement;
+		$data['words'] = array($data['word']);
+		return $data;
+	}	
+
+	public function formDescriptionQuery($data, $table, $orderBy = '') {
+
+		$word = $data['word'];
+		$data['description'] = $word;
+		unset($data['word']);
+
+		$data = $this->regexFilter($data);
+		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
+
+		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE ' . $sqlFilter . ' ' . $orderBy;
+
+		$data['query'] = $sqlStatement;
+		$data['description'] = $data['words'];
+		unset($data['words']);
 		return $data;
 	}
 
