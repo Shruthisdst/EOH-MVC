@@ -46,6 +46,16 @@ $(document).ready(function() {
 
         $("html, body").animate({scrollTop: jumpLoc}, 1000);
     }
+
+    $( '#results_nav a').on('click', function(event){
+
+        // event.preventDefault();
+
+        var jumpLoc = $( '#' + $( this ).attr( "href" ).split('#')[1] ).offset().top - 105;
+
+        $("html, body").animate({scrollTop: jumpLoc}, 1000);
+    });
+
 });
 
 
