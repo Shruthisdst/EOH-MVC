@@ -611,3 +611,13 @@ a.moretag {
   background-color: #444;
   color: #FFF;
 }
+h1.search-results{
+  color: #F00;
+  font-style: italic;
+}
+p.no-results{
+  font-size: 1.2em;
+}
+#results_nav{
+   float: right;
+}
