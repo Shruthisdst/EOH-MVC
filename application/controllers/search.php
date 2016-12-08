@@ -32,8 +32,6 @@ class search extends Controller {
 			$query = $this->model->formDescriptionQuery($data, METADATA_TABLE, 'ORDER BY word');
 			$result['C'] = $this->model->executeQuery($query['query'],$query['description']);
 
-			$result = array_filter($result);
-
 			($result) ? $this->view('search/result', $result) : $this->view('error/noResults', 'search/index/');
 		}
 		else {
