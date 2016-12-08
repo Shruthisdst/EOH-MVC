@@ -110,7 +110,7 @@ function checkforempty()
     var word = document.getElementById("word").value;
 
     if(!(word)){ 
-        alert("Please enter the word to search");
+        alert("Please enter a word to search");
         return false;
     }
 } 
