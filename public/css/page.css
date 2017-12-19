@@ -608,12 +608,16 @@ a.moretag {
   border-top: 2px solid #e5ae47;
 }
 .searchword{
-  background-color: #444;
-  color: #FFF;
+  background-color: #49729A;
+  color: white;
+  padding-right: 2px;
+  margin: 0 0;
 }
 h1.search-results{
-  color: #F00;
-  font-style: italic;
+  font-size: 20px;
+  color: #950C0C;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
 }
 p.no-results{
   font-size: 1.2em;

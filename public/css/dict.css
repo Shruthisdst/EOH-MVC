@@ -4,26 +4,26 @@
 }
 /*styles for Dictionary words*/
 .word, .images_list{
-    margin: 30px 0;
+	font-family: 'GentiumPlus-R';
+    margin: 0 0 30px 0;
     padding: 20px 20px 40px 20px;
     box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
     line-height: 1.3;
     min-height: 200px;
 }
 .word:first-of-type{
-	margin-top: 0;	
+	margin-top: 0em;	
 }
 .word .wBody{
-	font-family: 'GentiumPlus-R';
-    margin: 5px 0 0 50px;
-    font-size: 1.1em;
+	margin: 5px 0 0 50px;
+	font-size: 1.1em;
 }
 .vnum{
 	float: right;
 	font-size: 1.2em;
 }
 .word .wBody ol{
-     padding:0;
+  padding:0;
   counter-reset:item;
 }
 .word .wBody ol>li {
@@ -88,9 +88,10 @@
 
 .word .wBody p{
     line-height: 1.5;
+    margin: 0 0;
+    padding-bottom: 0.8em;
 }
 .whead .engWord{
-	font-family: 'GentiumPlus-R';
 	font-size: 1.5em !important;
     font-weight: bold;
 }
@@ -98,12 +99,10 @@
   color: #3372df !important;
 }
 .kanWord{
-	font-family: 'GentiumPlus-R';
 	font-weight: bold;
     font-size: 1.1em;
 }
 .grammarLabel{
-	font-family: 'GentiumPlus-R';
     font-style: italic;
     font-size: 1.1em;
     margin: 10px 0px 5px 15px;
@@ -112,19 +111,16 @@
     border-bottom: 1px solid #DEDEDE;        
 }
 .expl{
-	font-family: 'GentiumPlus-R';
     font-size: 1.1em;
     margin: 10px 0px 5px 15px;
     padding-bottom: 5px;
 }
 
 .eng{
-	font-family: 'GentiumPlus-R';
 	font-size:1.1em;
 }
 
 .engit{
-	font-family: 'GentiumPlus-R';
 	font-style: italic;	
 	font-size:1.1em;
 }
@@ -135,18 +131,15 @@ p.bracket_grp{
 }
 
 .crossref{
-	font-family: 'GentiumPlus-R';
 	color: #3372df;
 }
 .seecrossref{
-	font-family: 'GentiumPlus-R';
 	color: #3372df;
 }
 .seecrossref a:hover{
 	border-bottom: 1px dotted #3372df;
 }
 .seeinnercrossref{
-	font-family: 'GentiumPlus-R';
 	color: #3372df;
 }
 .kanWord img{
@@ -169,7 +162,6 @@ div.seealso{
 	margin-bottom: 1em;
 }
 .seealsoword{
-	font-family: 'GentiumPlus-R';
 	font-style: italic;
 	font-weight: bold;
 	color: #3372df;
@@ -187,14 +179,12 @@ div.seealso{
 }
 
 .alpha_link {
-	font-family: 'GentiumPlus-R';
 	font-size: 2em;
 	padding-right: 1.5em;
 	color: #3372df;
 }
 
 .alpha_link1 {
-	font-family: 'GentiumPlus-R';
 	font-size: 2em;
 	padding-right: 1.5em;
 	color: #CCCCCC;
@@ -212,30 +202,30 @@ div.seealso{
 	background: #F9C26F;
 }
 
-h1{
-	font-size: 1.5em !important;
-	padding-bottom: 1em;
-}
 .boldText{
 	font-weight: bold;
 }
 em{
     font-style: italic;
 }
-.italicBold{
-	color: #950C0C;
-	font-style: italic;
-	font-weight: bold;
-}
-.italicText{
-	color: #950C0C;
-	font-style: italic;
-}
 .poem{
 	font-style: italic;
 }
-.normalText{
+h1.normalText{
+	font-size: 15.4px;
 	color: #950C0C;
+}
+h3.italicBold{
+	color: #950C0C;
+	font-size: 15.4px;
+	font-weight: 700;
+	font-style: italic;
+}
+h2.italicText{
+	font-size: 15.4px;
+	color: #950C0C;
+	font-style: italic;
+	margin-bottom: 8px;
 }
 
 .fntsymbol{
@@ -267,8 +257,5 @@ table tr td{
 	margin-top: 5em;
 }
 .linkword{
-/*
-	border-bottom: 1px dotted #CCC;
-*/
 	border-bottom: 1px dotted red;
 }

@@ -18,7 +18,7 @@ class viewHelper extends View {
 				}
 			}
             echo '</span>';
-            echo '<span class="vnum clr1"><a href="'. BASE_URL .'describe/volume/' . $vnum . '">Volume&nbsp;-&nbsp;'.intval($vnum).'</a></span>';
+//            echo '<span class="vnum clr1"><a href="'. BASE_URL .'describe/volume/' . $vnum . '">Volume&nbsp;-&nbsp;'.intval($vnum).'</a></span>';
             echo '</div>';
             echo '<div class="grammarLabel">';
 			foreach ($xmlObj->head->note as $note)
@@ -51,7 +51,7 @@ class viewHelper extends View {
 				elseif(preg_match('#<figure>#', $xmlVal, $match))
 				{
 					$f = 1;
-					
+		
 					$count = count($fig);
 					if($count > 1)
 					{
@@ -117,7 +117,7 @@ class viewHelper extends View {
 				}
 			}
             $displayString = $displayString . '</span>';
-            $displayString = $displayString .  '<span class="vnum clr1"><a href="'. BASE_URL .'describe/volume/' . $vnum . '">Volume&nbsp;-&nbsp;'.intval($vnum).'</a></span>';
+//            $displayString = $displayString .  '<span class="vnum clr1"><a href="'. BASE_URL .'describe/volume/' . $vnum . '">Volume&nbsp;-&nbsp;'.intval($vnum).'</a></span>';
             $displayString = $displayString . '</div>';
             $displayString = $displayString . '<div class="grammarLabel">';
 			foreach ($xmlObj->head->note as $note)
@@ -256,10 +256,10 @@ class viewHelper extends View {
 			$xmlVal = preg_replace('/<span style="color: red">(.*?)<\/span>/', "$1", $xmlVal);
 		}
 		$xmlVal = preg_replace('/<strong>(.*?)<\/strong>/', "<span class=\"boldText\">$1</span>", $xmlVal);
-		$xmlVal = preg_replace('/<h1>(.*)<\/h1>/', "<p class=\"normalText\">$1</p>", $xmlVal);
-		$xmlVal = preg_replace('/<h2>(.*)<\/h2>/', "<p class=\"italicText\">$1</p>", $xmlVal);
+		$xmlVal = preg_replace('/<h1>(.*)<\/h1>/', "<h1 class=\"normalText\">$1</h1>", $xmlVal);
+		$xmlVal = preg_replace('/<h2>(.*)<\/h2>/', "<h2 class=\"italicText\">$1</h2>", $xmlVal);
 		$xmlVal = preg_replace('/<p type="poem">(.*)<\/p>/', "<p class=\"poem\">$1</p>", $xmlVal);
-		$xmlVal = preg_replace('/<h3>(.*)<\/h3>/', "<p class=\"italicBold\">$1</p>", $xmlVal);
+		$xmlVal = preg_replace('/<h3>(.*)<\/h3>/', "<h3 class=\"italicBold\">$1</h3>", $xmlVal);
 		$xmlVal = preg_replace('/<figcaption>(.*)<\/figcaption>/', "<p class=\"figCaption\">$1</p>", $xmlVal);
 		$xmlVal = preg_replace('/<ref href="">(.*?)<\/ref>/', "<span class=\"seecrossref\"><a href=\"#\">$1</a></span>",$xmlVal);
 		$xmlVal = preg_replace('/<ref href="(.*?)">(.*?)<\/ref>/', "<span class=\"seecrossref\"><a href=\"". BASE_URL ."describe/word/$1\">$2</a></span>",$xmlVal);
@@ -270,10 +270,10 @@ class viewHelper extends View {
 	{
 		$xmlVal = preg_replace('/<ref href="(.*?)">(.*?)<\/ref>/', "$1",$xmlVal);
 		$xmlVal = preg_replace('/<ref href="">(.*?)<\/ref>/', "$1",$xmlVal);
-		$xmlVal = preg_replace('/<h1>(.*)<\/h1>/', "<p class=\"normalText\">$1</p>", $xmlVal);
-		$xmlVal = preg_replace('/<h2>(.*)<\/h2>/', "<p class=\"italicText\">$1</p>", $xmlVal);
+		$xmlVal = preg_replace('/<h1>(.*)<\/h1>/', "<h1 class=\"normalText\">$1</h1>", $xmlVal);
+		$xmlVal = preg_replace('/<h2>(.*)<\/h2>/', "<h2 class=\"italicText\">$1</h2>", $xmlVal);
 		$xmlVal = preg_replace('/<p type="poem">(.*)<\/p>/', "<p class=\"poem\">$1</p>", $xmlVal);
-		$xmlVal = preg_replace('/<h3>(.*)<\/h3>/', "<p class=\"italicBold\">$1</p>", $xmlVal);
+		$xmlVal = preg_replace('/<h3>(.*)<\/h3>/', "<h3 class=\"italicBold\">$1</h3>", $xmlVal);
 		$xmlVal = preg_replace('/<figcaption>(.*)<\/figcaption>/', "<p class=\"figCaption\">$1</p>", $xmlVal);		
 		return($xmlVal);
 	}
