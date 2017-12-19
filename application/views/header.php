@@ -12,12 +12,6 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- FONT
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" id="royal_enqueue_Lato-css" href="http://fonts.googleapis.com/css?family=Lato%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&amp;ver=1.0.0" type="text/css" media="all">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700' rel='stylesheet' type='text/css'>
-    <link href="//fonts.googleapis.com/css?family=Raleway:100,400,300,600" rel="stylesheet" type="text/css">
-
     <!-- Javascript calls
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -25,8 +19,7 @@
     <script type="text/javascript" src="<?=PUBLIC_URL?>js/jquery-1.11.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="<?=PUBLIC_URL?>js/lightbox.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
-    
+        
     <script type="text/javascript" src="<?=PUBLIC_URL?>js/common.js"></script>
     
     <!-- CSS
@@ -49,7 +42,7 @@
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/social.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/dict.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/lightbox.css">
-
+    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/viewer.css">
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="<?=PUBLIC_URL?>images/favicon.ico">
@@ -67,13 +60,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <p class="navbar-text" id="navbarText">Encyclopaedia of Hinduism</p>
             </div>
             <div class="collapse navbar-collapse" id="navbar-primary-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="<?=BASE_URL?>listing/alphabet/A">Encyclopaedia of Hinduism</a></li>
-                    <li><a href="<?=BASE_URL?>page/flat/Home"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo of the University of Mysore" class="logo"></a></li>
+                    <li class="center-logo"><a href="<?=BASE_URL?>listing/alphabet/A">Encyclopaedia of Hinduism</a></li>
+                    <li id="navLogo"><a href="<?=BASE_URL?>page/flat/Home"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo of the University of Mysore" class="logo"></a></li>
                     <li><a href="<?=BASE_URL?>page/flat/Home">About</a></li>
-                    <li></li>
+                    <li class="navSeparator"><a>·</a></li>
                     <li><a href="#">Acknowledgements</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
