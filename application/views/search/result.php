@@ -1,18 +1,14 @@
-<?php $res['A'] = sizeof($data['A']) ?>
-<?php $res['B'] = sizeof($data['B']) ?>
-<?php $res['C'] = sizeof($data['C']) ?>
-
 <div class="container">
     <div class="row">
         <div class="col-md-12">
         <p id="results_nav" style="float: right;">
-        	<a href="#A_results">Exact Match(<?=$res['A']?>)</a>&nbsp; | &nbsp;
-        	<a href="#B_results">Partial Match(<?=$res['B']?>)</a>&nbsp; | &nbsp;
-        	<a href="#C_results">In Description(<?=$res['C']?>)</a> 
+        	<a href="#A_results">Exact Match(<?=sizeof($data['A'])?>)</a>&nbsp; | &nbsp;
+        	<a href="#B_results">Partial Match(<?=sizeof($data['B'])?>)</a>&nbsp; | &nbsp;
+        	<a href="#C_results">In Description(<?=sizeof($data['C'])?>)</a> 
         </p>
 <?php foreach ($data as $key => $array) { ?>
 
-	<?=$viewHelper->displayTitle($key,$res)?>
+	<?=$viewHelper->displayTitle($key)?>
 
 	<?php if( ($data[$key]) && ($key != 'C')): ?>
 		<?php foreach ($array as $row) { ?>

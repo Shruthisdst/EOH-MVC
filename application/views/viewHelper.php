@@ -100,6 +100,7 @@ class viewHelper extends View {
 		$searchword	= $this->getSearchWord();
 		$searchwords = preg_split('/ |-/', $searchword);
 		array_push($searchwords, $searchword);
+
 		$displayString = '';
 		$isempty = 0; 
 
@@ -285,19 +286,10 @@ class viewHelper extends View {
         return $vnum;
 	}
 
-	public function displayTitle($key,$res){
+	public function displayTitle($key){
 
-		// $msg = ($res[$key])? '(' . $res[$key] . ')': ' ';
-
-		if($key == 'A'){
-			echo '<h1 class="search-results" id="A_results">Exact Match</h1>';
-		}		
-		else if($key == 'B'){
-			echo '<h1 class="search-results" id="B_results">Partial Match</h1>';
-		}		
-		else if($key == 'C'){
-			echo '<h1 class="search-results" id="C_results">In Description</h1>';
-		}
+		$array = array("A" => "Exact Match", "B"=>"Partial Match", "C"=>"In Description");
+		echo '<h1 class="search-results" id="'. $key . '_results">' . $array[$key] . '</h1>';
 	}
 
 	public function getSearchWord(){
