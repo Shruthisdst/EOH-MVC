@@ -13,7 +13,6 @@ class data extends Controller {
 	}
 
 	public function insertData(){
-		ini_set('max_execution_time', 800);
 
 		$metaData = $this->model->getMetadaData();
 		
