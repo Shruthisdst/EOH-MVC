@@ -12,7 +12,7 @@ class data extends Controller {
 		$this->insertDetails();
 	}
 
-	public function insertData(){
+	public function insertMetaData(){
 
 		$metaData = $this->model->getMetadaData();
 		
