@@ -42,7 +42,6 @@
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/social.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/dict.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/lightbox.css">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/viewer.css">
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="<?=PUBLIC_URL?>images/favicon.ico">

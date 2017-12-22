@@ -105,150 +105,65 @@ class viewHelper extends View {
 		$isempty = 0; 
 
         $xmlObj=simplexml_load_string($description);
-        //~ echo dom_import_simplexml($xmlObj)->textContent;
-            $footNote = '';
-            $displayString = $displayString . '<div class="word">';
-			$displayString = $displayString . '<div class="whead">';
-            $displayString = $displayString . '<span class="engWord clr1">'. $xmlObj->head->word;
-            foreach ($xmlObj->head->alias as $alias)
+        $footNote = '';
+        $displayString = $displayString . '<div class="word">';
+		$displayString = $displayString . '<div class="whead">';
+        $displayString = $displayString . '<span class="engWord clr1">'. $xmlObj->head->word;
+        foreach ($xmlObj->head->alias as $alias)
+		{
+			if($alias != '')
 			{
-				if($alias != '')
-				{
-					$displayString = $displayString . ', ' . $alias;
-				}
+				$displayString = $displayString . ', ' . $alias;
 			}
-            $displayString = $displayString . '</span>';
-//            $displayString = $displayString .  '<span class="vnum clr1"><a href="'. BASE_URL .'describe/volume/' . $vnum . '">Volume&nbsp;-&nbsp;'.intval($vnum).'</a></span>';
-            $displayString = $displayString . '</div>';
-            $displayString = $displayString . '<div class="grammarLabel">';
-			foreach ($xmlObj->head->note as $note)
+		}
+        $displayString = $displayString . '</span>';
+
+        // Decision has been taken to supress the display of volume number
+        // $displayString = $displayString .  '<span class="vnum clr1"><a href="'. BASE_URL .'describe/volume/' . $vnum . '">Volume&nbsp;-&nbsp;'.intval($vnum).'</a></span>';
+        $displayString = $displayString . '</div>';
+        $displayString = $displayString . '<div class="grammarLabel">';
+		foreach ($xmlObj->head->note as $note)
+		{
+			$note = strip_tags($note);
+			if($note != '')
 			{
-				if($note != '')
+				$displayString = $displayString . '<span>'; 
+				$textValue =  $this->replaceSearchWords($note,$searchwords); 
+				if($textValue != '')
 				{
-					$displayString = $displayString . '<span>'; 
-					$textValue =  $this->replaceSearchWords($note,$searchwords); 
-					if($textValue != '')
-					{
-						$isempty = 1;
-						$displayString = $displayString . $textValue;
-					}	
-					$displayString = $displayString . '</span>';
-				}
-				else
-				{
-					$displayString = $displayString . '<span></span>';
-				}
+					$isempty = 1;
+					$displayString = $displayString . $textValue;
+				}	
+				$displayString = $displayString . '</span>';
 			}
-			$displayString = $displayString . '</div>';
-			$displayString = $displayString . '<div class="wBody">';
-			$fig = $xmlObj->description->figure;
-			$figNum = '';
-			foreach ($xmlObj->description->children() as $child)
+			else
 			{
-				$xmlVal = $child->asXML();
-				$xmlVal = $this->replaceTags($xmlVal);
-
-				if(preg_match('#<aside>(.*?)<\/aside>#', $xmlVal, $match))
-				{
-					$xmlVal = preg_replace('/<aside>(.*)<\/aside>/', "<span class=\"fntsymbol\">*</span>", $xmlVal);
-
-					$textValue = $this->replaceSearchWords($xmlVal,$searchwords); 
-					if($textValue != '')
-					{
-						$isempty = 1;
-						$displayString = $displayString . $textValue;
-					}
-					$footNote = $match[1];
-				}
-				elseif(preg_match('#<figure>#', $xmlVal, $match))
-				{
-					$f = 1;
-					
-					$count = count($fig);
-					if($count > 1)
-					{
-						if($figNum <= $count)
-						{
-							$figNum = $figNum + $f;
-							// echo "<span class='crossref'><a href='". PUBLIC_URL . "images/thumbs/" . $word . "_".$figNum.".png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='". PUBLIC_URL . "images/main/". $word . ""."_".$figNum.".png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
-							// echo $this->replaceSearchWords($xmlVal,$searchwords); 
-						}
-						$f++;
-					}
-					else
-					{
-						// echo "<span class='crossref'><a href='" . PUBLIC_URL . "images/thumbs/" . $word . ".png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='". PUBLIC_URL . "images/main/".$word.".png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
-	
-						// echo $this->replaceSearchWords($xmlVal,$searchwords); 
-	
-					}
-				}
-				elseif(preg_match('#<ol>#', $xmlVal))
-				{
-					// echo "<ol>";
-					foreach ($child->children() as $lichild){
-
-						$lixmlVal = $lichild->asXML();
-						$textValue = $this->replaceSearchWords($lixmlVal,$searchwords);
-						if($textValue != '')
-						{
-							$isempty = 1;
-							$displayString = $displayString . $textValue;
-						}
-					}
-					// echo "</ol>";				
-				}				
-				elseif(preg_match('#<ul>#', $xmlVal))
-				{
-					// echo "<ul>";
-					foreach ($child->children() as $lichild){
-
-						$lixmlVal = $lichild->asXML();
-						$textValue = $this->replaceSearchWords($lixmlVal,$searchwords);
-						if($textValue != '')
-						{
-							$isempty = 1;
-							$displayString = $displayString . $textValue;
-						}
-
-					}
-					// echo "</ul>";				
-				}
-				else
-				{
-					$textValue = $this->replaceSearchWords($xmlVal,$searchwords); 
-					if($textValue != '')
-					{
-						$isempty = 1;
-						$displayString = $displayString . $textValue;
-					}
-				}
+				$displayString = $displayString . '<span></span>';
 			}
-			if($footNote != '')
+		}
+		$displayString = $displayString . '</div>';
+		$displayString = $displayString . '<div class="wBody">';
+		$fig = $xmlObj->description->figure;
+		$figNum = '';
+		foreach($xmlObj->description->children() as $child)
+		{
+			$xmlVal = html_entity_decode(strip_tags($child->asXML()));
+			
+			$lines = preg_split("/\n/",$xmlVal);
+			foreach ($lines as $line)
 			{
-				$displayString = $displayString ."<div class=\"FootNote\">";
-				foreach ($xmlObj->description->children() as $child)
-				{
-					$xmlVal = $child->asXML();
-					if(preg_match('#<aside>(.*?)<\/aside>#', $xmlVal, $match))
-					{
-						$textModfied = $this->replaceSearchWords($match[1], $searchwords);
-						if($textModfied != ''){
-							$isempty = 1;
-							$displayString = $displayString . "<div><span class=\"fntsymbol\">*</span>" . $textModfied . "</div>";
-						}
-					}
-				}
-				$displayString = $displayString . '</div>';
+				$displayString = $displayString . $this->replaceSearchWords($line,$searchwords);
 			}
-			$footNote = '';
-			$displayString = $displayString . '<p style="float: right;"><a href="'. BASE_URL .'describe/word/'.$word.'" title="for more details click here">....More</a></p>';
-            $displayString = $displayString . '</div>';
-			$displayString = $displayString .'</div>';
-			if($isempty){
-				echo $displayString;
-			}
-    }
+		}
+
+        $displayString = $displayString . '</div>';
+		$displayString = $displayString .'</div>';
+
+		if($displayString != ''){
+			echo $displayString;
+		}
+
+	}
 
     public function replaceHeadings($xmlVal)
 	{
@@ -301,7 +216,7 @@ class viewHelper extends View {
 
 		foreach($words as $word){
 
-			if(preg_match('/'. $word  .'/i', $text)){
+			if(preg_match('/'. $word  .'/ui', $text)){
 
 				// $text = preg_replace('/('. $word .')/i', '<span class="searchword">$1</span>' , $text);
 				$text = $this->getSorroundingWords($text,$word);
@@ -314,14 +229,14 @@ class viewHelper extends View {
 
 	public function getSorroundingWords($text,$searchWord){
 
-		 $text = preg_replace('/class="linkword"/', '', $text);
-		 $text = preg_replace('/<span>/', '', $text);
-		 $text = preg_replace('/<\/span>/', '', $text);
+		 // $text = preg_replace('/class="linkword"/', '', $text);
+		 // $text = preg_replace('/<span>/', '', $text);
+		 // $text = preg_replace('/<\/span>/', '', $text);
 
 		$textWords = preg_split('/ /', $text);
 		// var_dump($textWords);
 
-		$searchList = preg_grep('/' . $searchWord . '/i', $textWords);
+		$searchList = preg_grep('/' . $searchWord . '/ui', $textWords);
 		$key = key($searchList);
 		$left = $key-10;
 		$right = $key+10;
@@ -330,15 +245,14 @@ class viewHelper extends View {
 		$right = $right-$left;
 		$output = array_slice($textWords, $left, $right);
 		$output = implode(" ", $output);
-		$output = preg_replace('/(' . $searchWord . ')/i', '<span class="searchword">$1</span>', $output);
+		$output = preg_replace('/(' . $searchWord . ')/ui', '<span class="searchword">$1</span>', $output);
 
 		$text = '.......... ' . $output . '..........';
 
-		$text = preg_replace('/<p>|<li>|<td>/','',$text);
-		$text = preg_replace('/<\/p>|<\/li>|<\/td>/','',$text);
+		// $text = preg_replace('/<p>|<li>|<td>/','',$text);
+		// $text = preg_replace('/<\/p>|<\/li>|<\/td>/','',$text);
 		$text ='<p>' . $text . '</p>';
 		return $text;
-
 	}
 
 }
