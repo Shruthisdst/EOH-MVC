@@ -17,6 +17,9 @@
 <!ELEMENT h2 ANY>
 <!ELEMENT h3 ANY>
 <!ELEMENT table ANY>
+<!ELEMENT thead ANY>
+<!ELEMENT tbody ANY>
+<!ATTLIST table class CDATA #IMPLIED>
 <!ELEMENT tr ANY>
 <!ELEMENT th ANY>
 <!ELEMENT td ANY>
@@ -34,5 +37,3 @@
 <!ELEMENT dl ANY>
 <!ELEMENT dd ANY>
 <!ELEMENT caption ANY>
-<!ELEMENT table (thead*)>
-<!ATTLIST table class CDATA #IMPLIED>
