@@ -14,11 +14,12 @@
 
     <!-- Javascript calls
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?=PUBLIC_URL?>js/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="<?=PUBLIC_URL?>js/lightbox.js"></script>
+    <script type="text/javascript" src="<?=PUBLIC_URL?>js/lightbox.js"></script>
         
     <script type="text/javascript" src="<?=PUBLIC_URL?>js/common.js"></script>
     
@@ -28,7 +29,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="css/skeleton.css"> -->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/navbar.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/carousel.css">
@@ -54,7 +55,25 @@
 <body>
     <!-- Navigation
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top">
+        <div class="container-fluid clear-paddings">
+            <a class="navbar-brand" href="#"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo" class="logo"></a>
+            <p class="navbar-text" id="navbarText"><small>A Concise</small><br />Encyclopaedia of Hinduism</p>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li><a href="<?=BASE_URL?>listing/alphabet/A">The Encyclopaedia</a></li>
+                    <li><a href="<?=BASE_URL?>page/flat/Home">About</a></li>
+                    <li><a href="<?=BASE_URL?>page/flat/Home">Index</a></li>
+                    <li><a id="openNavbarSearch"><i class="fa fa-search"></i></a></li>
+                </ul>
+                <form id="navbarSearch" class="form-inline">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Search"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+<!--     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary-collapse">
@@ -78,7 +97,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
     <!-- End Navigation
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script type="text/javascript">
@@ -95,7 +114,7 @@ function checkforempty()
 
     $( function() {
    var wordList = [
-				{ label: "a", value: "a" },
+                { label: "a", value: "a" },
 { label: "abadhita", value: "abādhita" },
 { label: "abhangas", value: "abhaṅgas" },
 { label: "abhasa", value: "ābhāsa" },
@@ -3881,9 +3900,9 @@ function checkforempty()
 { label: "yutasiddha", value: "yutasiddha" },
 { label: "zero", value: "zero" },
 { label: "Zodiacal Signs", value: "Zodiacal Signs" }
-			];
+            ];
     $( "#word" ).autocomplete({
-		source: function(request, response) {
+        source: function(request, response) {
             
             response($.ui.autocomplete.filter( wordList, request.term  ));
         },
@@ -3894,7 +3913,7 @@ function checkforempty()
         }
     });
 
-	$.ui.autocomplete.filter = function (array, term) {
+    $.ui.autocomplete.filter = function (array, term) {
         var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(term), "i");
         return $.grep(array, function (value) {
             return matcher.test(value.label || value.value || value);
