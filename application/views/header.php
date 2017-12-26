@@ -65,7 +65,7 @@
                     <li><a href="<?=BASE_URL?>listing/alphabet/A">The Encyclopaedia</a></li>
                     <li><a href="<?=BASE_URL?>page/flat/Home">About</a></li>
                     <li><a href="<?=BASE_URL?>page/flat/Home">Index</a></li>
-                    <li><a id="openNavbarSearch"><i class="fa fa-search"></i></a></li>
+                    <li id="openNavbarSearch"><a><i class="fa fa-search"></i></a></li>
                 </ul>
                 <form id="navbarSearch" class="form-inline">
                     <div class="form-group"><input type="text" class="form-control" placeholder="Search"></div>

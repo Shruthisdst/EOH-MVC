@@ -3,33 +3,36 @@
 	margin-bottom: 0;
 	background-color: #FFF;
 	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
-	padding: 0 30px;
+	padding: 10px 0;
 }
 .navbar-brand {
 	padding: 0;
 }
 .navbar .logo{
-	height: 80px;
+	height: 40px;
 	transition: height 0.3s ease;
-	margin: 5px 0 5px 0px;
+	margin: 0;
+	padding-left: 8px;
 }
 .navbar #navbarText{
 	font-family: 'Roboto', sans-serif;
-	font-size: 24px;
+	font-size: 18px;
 	color: #D50000;
 	font-weight: 300;
 	display: inline-block;
-	line-height: 24px;
+	line-height: 18px;
 	padding-top: 0;
 	padding-bottom: 4px;
 	margin-bottom: 0;
 	margin-top: 0;
+	text-align: center;
 }
 .navbar #navbarText small{
 	font-style: italic;
-	font-size: 16px;
+	font-size: 12px;
 	font-weight: 300;
 	color: #333;
+	text-align: center;
 }
 .navbar a{
 	font-size: 13px;
@@ -78,12 +81,12 @@
 	background-color: #e5e5e5;
 }
 .navbar .navbar-nav {
-  text-align: right;
-  margin-top: 30px;
+  text-align: center;
+  margin-top: 10px;
 }
 .navbar .form-inline {
   padding-left: 10px;
-  margin-top: 30px;
+  padding-right: 10px;
 }
 .navbar .form-inline input,
 .navbar .form-inline button{
@@ -96,10 +99,17 @@
 	border-bottom: 1px solid #333;
 	padding: 0;
 	padding-bottom: 0;
+	width: 100%;
 }
 
 .navbar .navbar-nav > li {
-	padding: 0 10px;
+	padding: 10px;
+}
+.navbar-light .navbar-toggler {
+	border-color: transparent;
+}
+.navbar-toggler-icon{
+	width: 1.25em;
 }
 @media(min-width:768px) {
 	.navbar .navbar-nav > li {
@@ -118,11 +128,11 @@
   color: #e5ae47;
   line-height: 12px;
 }
-#navbarSearch{
-	display: none;
+#navbarSearch .form-group{
+	width: 100%;
 }
 #openNavbarSearch{
-	display: inline-block;
+	display: none;
 	cursor: pointer;
 }
 ul.nav-pills{
@@ -141,10 +151,43 @@ li.navSeparator{
 	display: none !important;
 }
 @media(min-width:768px) {
-	.wider{
-		transition: all 0.2s ease;
-	}
 	li.navSeparator{
 		display: inline-block !important;
+	}
+	.navbar{
+		padding: 0 30px;
+	}
+	.navbar .navbar-nav {
+	  margin-top: 30px;
+	}
+	.navbar .navbar-nav > li {
+  		display: inline-block;
+	}
+	.navbar .logo{
+		height: 80px;
+		transition: height 0.3s ease;
+		margin: 5px 0 5px 0px;
+	}
+	.navbar #navbarText{
+		font-size: 24px;
+		line-height: 24px;
+		padding-top: 0;
+		padding-bottom: 4px;
+		margin-bottom: 0;
+		margin-top: 0;
+		text-align: left;
+	}
+	.navbar #navbarText small{
+		font-size: 16px;
+	}
+	#navbarSearch{
+		display: none;
+	}
+	.navbar .form-inline {
+	  padding-left: 10px;
+	  margin-top: 30px;
+	}
+	#openNavbarSearch{
+		display: inline-block;
 	}
 }

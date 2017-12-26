@@ -6,7 +6,9 @@
     width: 100%;
     background-size: cover;
     color: #FFF;
-    padding-top: 90px;
+}
+.banner .row{
+    height: 100vh;
 }
 .banner h1{
     text-align: center;
@@ -20,4 +22,91 @@
     font-style: italic;
     font-size: 32px;
     color: #FFF;
+}
+.banner input.bigSearch {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    width: 100%;
+    padding: 12px;
+    margin: 16px 0;
+    border: none;
+    opacity: 0.95;
+    color: #333;
+    outline: none;
+}
+.banner .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px;
+}
+
+@media(min-width:768px) {
+    .banner .overlay {
+        padding: 40px;
+        border-radius: 10px;
+    }
+}
+
+/*Scroll down*/
+
+a.scrollMore {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 2;
+  display: inline-block;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  color: #fff;
+  font : normal 400 20px/1 'Josefin Sans', sans-serif;
+  letter-spacing: .1em;
+  text-decoration: none;
+  transition: opacity .3s;
+}
+a.scrollMore:hover {
+  opacity: .5;
+}
+
+a.scrollMore {
+  padding-top: 70px;
+}
+a.scrollMore span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb05 1.5s infinite;
+  animation: sdb05 1.5s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb05 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+@keyframes sdb05 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
 }
