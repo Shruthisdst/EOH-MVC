@@ -47,7 +47,7 @@
     <!-- Fonts
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=latin-ext" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400|Roboto:300,400&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway:300,400|Roboto:300,400&amp;subset=latin-ext" rel="stylesheet">
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="<?=PUBLIC_URL?>images/favicon.ico">

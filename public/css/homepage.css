@@ -2,32 +2,32 @@
     background: url(../images/himalaya.jpg) no-repeat center center;
     /*background-attachment: fixed;*/
     display: table;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-size: cover;
     color: #FFF;
 }
 .banner .row{
-    height: 100vh;
+    height: 100%;
 }
 .banner h1{
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
-    font-size: 48px;
-    line-height: 64px;
+    font-size: 36px;
+    line-height: 48px;
 }
 .banner h1 small{
     font-weight: 100;
     font-style: italic;
-    font-size: 32px;
+    font-size: 24px;
     color: #FFF;
 }
 .banner input.bigSearch {
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    width: 100%;
-    padding: 12px;
+    font-size: 18px;
+    width: 80%;
+    padding: 8px;
     margin: 16px 0;
     border: none;
     opacity: 0.95;
@@ -36,13 +36,97 @@
 }
 .banner .overlay {
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 0px;
+    padding: 40px 0px;
+    text-align: center;
+    min-height: 100vh;
 }
+
+.prelims {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    font-weight: 300;
+    color: #333;
+}
+.prelims p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+    margin: 10px 0;
+}
+.prelims h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+}
+.dedication h2{
+    text-align: center;
+}
+.dedication .verse{
+    font-size: 24px;
+    line-height: 40px;
+    color: #D50000;
+}
+.blessing p{
+    color: #D50000;
+}
+.blessing img{
+    margin-bottom: 20px;
+}
+.author {
+    background: url(../images/author.jpg) no-repeat center center;
+    /*background-attachment: fixed;*/
+    display: table;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    color: #FFF;
+    height: 90vh;
+}
+.author .row{
+    height: 100%;
+}
+.author.prelims p{
+    line-height: 24px;
+}
+.author .overlay{
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+}
+
 
 @media(min-width:768px) {
     .banner .overlay {
         padding: 40px;
         border-radius: 10px;
+    }
+    .banner h1{
+        font-size: 48px;
+        line-height: 64px;
+    }
+    .banner h1 small{
+        font-size: 32px;
+    }
+    .banner input.bigSearch {
+        font-size: 24px;
+        width: 60%;
+        padding: 12px;
+        margin: 16px 0;
+    }
+    .prelims p {
+        font-size: 18px;
+        line-height: 36px;
+    }
+    .prelims p{
+        margin: 20px 0;
+    }
+    .dedication h2{
+        text-align: left;
+    }
+    .author .overlay{
+        padding: 40px;
+        line-height: 36px;
+    }
+    .author.prelims p{
+        line-height: 28px;
     }
 }
 
