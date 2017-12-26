@@ -54,7 +54,7 @@
 <body>
     <!-- Navigation
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary-collapse">
@@ -64,7 +64,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo" class="logo"></a>
-                <p class="navbar-text" id="navbarText">Encyclopaedia of Hinduism</p>
+                <p class="navbar-text" id="navbarText"><small>A Concise</small><br />Encyclopaedia of Hinduism</p>
             </div>
             <div class="collapse navbar-collapse" id="navbar-primary-collapse">
                 <form class="navbar-form navbar-nav navbar-right">

@@ -4,18 +4,26 @@
 .navbar-default .logo{
 	height: 80px;
 	transition: height 0.3s ease;
-	margin: 5px 20px;
+	margin: 5px 0 5px 32px;
 }
 .navbar-default #navbarText{
-	padding-left: 20px;
-	font-size: 16px;
-	font-weight: 400;
+	font-family: 'Roboto', sans-serif;
+	font-size: 24px;
+	color: #D50000;
+	font-weight: 300;
 	display: inline-block;
+	margin: 18px;
+	line-height: 24px;
+}
+.navbar-default #navbarText small{
+	font-style: italic;
+	font-size: 16px;
+	color: #333;
 }
 .navbar-default{
 	font-family: 'Roboto', sans-serif;
 	margin-bottom: 0;
-	background: none;
+	background-color: #FFF;
 	box-shadow: 0px 1px 2px 0px rgba(0,0,0, 0.1);
 }
 .navbar-default a{
@@ -136,9 +144,6 @@ li.navSeparator{
 	.navbar-nav>li>a{
 		padding-top: 20px;
 		padding-bottom: 20px;
-	}
-	.navbar-default #navbarText{
-		display: none;
 	}
 	li.navSeparator{
 		display: inline-block !important;
