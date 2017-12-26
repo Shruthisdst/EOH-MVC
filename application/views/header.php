@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/navbar.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/carousel.css">
+    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/homepage.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/page.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/archive.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/general.css">
@@ -41,6 +42,11 @@
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/social.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/dict.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/lightbox.css">
+
+    <!-- Fonts
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=latin-ext" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400|Roboto:300,400&amp;subset=latin-ext" rel="stylesheet">
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="<?=PUBLIC_URL?>images/favicon.ico">
@@ -48,9 +54,8 @@
 <body>
     <!-- Navigation
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <nav class="navbar navbar-default navbar-fixed-top wider">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -58,43 +63,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand" href="#"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo" class="logo"></a>
                 <p class="navbar-text" id="navbarText">Encyclopaedia of Hinduism</p>
             </div>
             <div class="collapse navbar-collapse" id="navbar-primary-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="center-logo"><a href="<?=BASE_URL?>listing/alphabet/A">Encyclopaedia of Hinduism</a></li>
-                    <li id="navLogo"><a href="<?=BASE_URL?>page/flat/Home"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo of the University of Mysore" class="logo"></a></li>
+                <form class="navbar-form navbar-nav navbar-right">
+                    <div id="navbarSearch" class="form-group"><input type="text" class="form-control" placeholder="Search"></div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?=BASE_URL?>listing/alphabet/A">The Encyclopaedia</a></li>
                     <li><a href="<?=BASE_URL?>page/flat/Home">About</a></li>
-                    <li class="navSeparator"><a>·</a></li>
-                    <li><a href="#">Acknowledgements</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <!-- End Navigation
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <div class="container">
-        <div class="row">
-            <!-- Column 1 -->
-            <div class="col-md-12 text-center">
-                <ul class="list-inline sub-nav">
-                    <li><a href="<?=BASE_URL?>listing/alphabet/A">Index</a></li>
-                    <li><a>·</a></li>
-                    <li><a>Search</a></li>
-                    <li id="searchForm">
-                        <form  id="searchWord" class="navbar-form" role="search" action="<?=BASE_URL?>search/field/" method="get" onsubmit="return checkforempty()">
-                            <div class="input-group add-on">
-                                <input type="text" class="form-control" placeholder="Word" name="word" id="word">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </li>
+                    <li><a href="<?=BASE_URL?>page/flat/Home">Index</a></li>
+                    <li><a id="openNavbarSearch"><i class="fa fa-search"></i></a></li>
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
+    <!-- End Navigation
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script type="text/javascript">
 
 function checkforempty()
