@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', 'http://192.168.1.24/eoh-mvc/');
+define('BASE_URL', 'http://localhost/eoh-mvc/');
 define('PUBLIC_URL', BASE_URL . 'public/');
 define('XML_SRC_URL', BASE_URL . 'md-src/xml/');
 define('PHOTO_URL', PUBLIC_URL . 'Photos/');
@@ -9,7 +9,7 @@ define('IMAGE_URL', PUBLIC_URL . 'images/');
 define('RESOURCES_URL', PUBLIC_URL . 'Resources/');
 
 // Physical location of resources
-define('PHY_BASE_URL', '/var/www/eoh-mvc/');
+define('PHY_BASE_URL', '/var/www/html/eoh-mvc/');
 define('PHY_PUBLIC_URL', PHY_BASE_URL . 'public/');
 define('PHY_XML_SRC_URL', PHY_BASE_URL . 'md-src/xml/');
 define('PHY_PHOTO_URL', PHY_PUBLIC_URL . 'Photos/');
