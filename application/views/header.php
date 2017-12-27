@@ -16,37 +16,32 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?=PUBLIC_URL?>js/lightbox.js"></script>
-        
     <script type="text/javascript" src="<?=PUBLIC_URL?>js/common.js"></script>
     
     <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/normalize.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="css/skeleton.css"> -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/navbar.css">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/carousel.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/homepage.css">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/page.css">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/archive.css">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/general.css">
-    <!-- <link rel="stylesheet" href="<?=PUBLIC_URL?>css/flat.css"> -->
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/form.css">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/aux.css">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/social.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/dict.css">
+    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/general.css">
+    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/aux.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/lightbox.css">
+    <!-- <link rel="stylesheet" href="<?=PUBLIC_URL?>css/carousel.css"> -->
+    <!-- <link rel="stylesheet" href="<?=PUBLIC_URL?>css/page.css"> -->
+    <!-- <link rel="stylesheet" href="<?=PUBLIC_URL?>css/archive.css"> -->
+    <!-- <link rel="stylesheet" href="<?=PUBLIC_URL?>css/flat.css"> -->
+    <!-- <link rel="stylesheet" href="<?=PUBLIC_URL?>css/form.css"> -->
+    <!-- <link rel="stylesheet" href="<?=PUBLIC_URL?>css/social.css"> -->
 
     <!-- Fonts
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=latin-ext" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway:200,300,400|Roboto:300,400&amp;subset=latin-ext" rel="stylesheet">
+
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="<?=PUBLIC_URL?>images/favicon.ico">

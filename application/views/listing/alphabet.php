@@ -2,7 +2,7 @@
 	<div class="row">
 		<!-- Column 1 -->
 		<div class="col-md-12 text-center">
-			<ul class="list-inline alphabet">
+			<ul class="list-unstyled alphabet">
 				<li><a href="<?=BASE_URL?>listing/alphabet/A">A</a></li>
 				<li><a href="<?=BASE_URL?>listing/alphabet/B">B</a></li>
 				<li><a href="<?=BASE_URL?>listing/alphabet/C">C</a></li>
@@ -27,15 +27,14 @@
 				<li><a href="<?=BASE_URL?>listing/alphabet/W">W</a></li>
 				<li><a href="<?=BASE_URL?>listing/alphabet/Y">Y</a></li>
 				<li><a href="<?=BASE_URL?>listing/alphabet/Z">Z</a></li>
-               </ul>
+            </ul>
 		</div>
 	</div>
-</div>
-<div class="container">
-        <div class="col-md-12 column-7">
-
+	<div class="row">
+        <div class="col-md-12 multi-column word-list">
 <?php foreach ($data as $row) { ?>
-            <div><a href="<?=BASE_URL?>describe/word/<?= $row->word ?>"><?= $row->word ?></a></div>    
+            <a href="<?=BASE_URL?>describe/word/<?= $row->word ?>"><?= $row->word ?></a>
 <?php } ?>
         </div>
+    </div>
 </div>

@@ -8,6 +8,7 @@ class listing extends Controller {
 	}
 
 	public function index() {
+
 		$this->alphabet();
 	}
 
@@ -16,11 +17,6 @@ class listing extends Controller {
 		$word = $this->model->listWordsOfAlphabet($letter);
 		//~ var_dump($word);
 		($word) ? $this->view('listing/alphabet', $word) : $this->view('error/index');
-	}
-	public function fragment($fragment = '') {
-
-		$data = $this->model->listWordsByFragment($fragment);
-		echo $data;
 	}
 }
 

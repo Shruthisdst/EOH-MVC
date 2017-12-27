@@ -3,6 +3,7 @@
 }
 .dynamic-page{
     min-height: 75vh;
+    font-family: 'Raleway', sans-serif;
 }
 .banner {
     background: url(../images/himalaya.jpg) no-repeat center center;
