@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <!-- Column 1 -->
         <div class="col-md-12 clear-paddings">

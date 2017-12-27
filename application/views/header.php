@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/page.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/archive.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/general.css">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/flat.css">
+    <!-- <link rel="stylesheet" href="<?=PUBLIC_URL?>css/flat.css"> -->
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/form.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/aux.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/social.css">
@@ -47,7 +47,7 @@
     <!-- Fonts
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=latin-ext" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway:300,400|Roboto:300,400&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway:200,300,400|Roboto:300,400&amp;subset=latin-ext" rel="stylesheet">
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="<?=PUBLIC_URL?>images/favicon.ico">
@@ -62,9 +62,9 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav nav ml-auto">
-                    <li><a href="<?=BASE_URL?>listing/alphabet/A">The Encyclopaedia</a></li>
-                    <li><a href="<?=BASE_URL?>page/flat/Home">About</a></li>
-                    <li><a href="<?=BASE_URL?>page/flat/Home">Index</a></li>
+                    <li><a href="<?=BASE_URL?>page/flat/Home">The Encyclopaedia</a></li>
+                    <li><a href="<?=BASE_URL?>page/flat/About">About</a></li>
+                    <li><a href="<?=BASE_URL?>listing/alphabet/A">Index</a></li>
                     <li id="openNavbarSearch"><a><i class="fa fa-search"></i></a></li>
                 </ul>
                 <form id="navbarSearch" class="form-inline">
@@ -73,31 +73,6 @@
             </div>
         </div>
     </nav>
-<!--     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img src="<?=PUBLIC_URL?>images/logo.png" alt="Logo" class="logo"></a>
-                <p class="navbar-text" id="navbarText"><small>A Concise</small><br />Encyclopaedia of Hinduism</p>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-primary-collapse">
-                <form class="navbar-form navbar-nav navbar-right">
-                    <div id="navbarSearch" class="form-group"><input type="text" class="form-control" placeholder="Search"></div>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?=BASE_URL?>listing/alphabet/A">The Encyclopaedia</a></li>
-                    <li><a href="<?=BASE_URL?>page/flat/Home">About</a></li>
-                    <li><a href="<?=BASE_URL?>page/flat/Home">Index</a></li>
-                    <li><a id="openNavbarSearch"><i class="fa fa-search"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
     <!-- End Navigation
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script type="text/javascript">

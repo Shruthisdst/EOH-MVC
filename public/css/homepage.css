@@ -1,3 +1,6 @@
+.flat-page{
+    margin-top: 140px;
+}
 .banner {
     background: url(../images/himalaya.jpg) no-repeat center center;
     /*background-attachment: fixed;*/
@@ -48,14 +51,65 @@
     color: #333;
 }
 .prelims p {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 16px;
     line-height: 28px;
     margin: 10px 0;
 }
+.prelims h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+}
 .prelims h2 {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
+}
+
+.word-of-the-day {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+.word-of-the-day h2{
+    text-align: center;
+}
+.word-of-the-day h1{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 48px;
+    font-weight: 200;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+.word-of-the-day .see-more{
+    text-align: right;
+    color: #D50000;
+    font-style: italic;
+}
+.word-of-the-day .see-more a{
+    color: inherit;
+}
+
+
+.about-tabs {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+.about-tabs.nav-tabs .nav-link{
+    color: #333;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid transparent;
+}
+.about-tabs.nav-tabs .nav-link.active,
+.about-tabs.nav-tabs .nav-link:focus,
+.about-tabs.nav-tabs .nav-link:hover {
+    color: #D50000;
+    font-weight: 400;
+    border-radius: 0;
+    border-bottom: 1px solid #ddd;
+}
+.about-content .tab-pane .prelims{
+    padding-top: 40px;
 }
 .dedication h2{
     text-align: center;
