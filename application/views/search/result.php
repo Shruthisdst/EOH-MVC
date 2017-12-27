@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container dynamic-page">
     <div class="row">
         <div class="col-md-12">
         <p id="results_nav" style="float: right;">

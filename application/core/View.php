@@ -97,7 +97,7 @@ class View {
 
 		// Side bar can be included by un-commenting the following line
 		// require_once($this->getSideBar($actualPath, $journal));
-		// require_once 'application/views/footer.php';
+		require_once 'application/views/footer.php';
 	}
 
 	public function showFlatPage($data = array(), $path = '', $actualPath = '', $journal = '', $navigation = array(), $current = array()) {

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container dynamic-page">
     <div class="row">
         <div class="col-md-12">
 			<h1 class="clr1 gapBelowSmall">Volume : <?=intval($data[0]->vnum)?></h1>

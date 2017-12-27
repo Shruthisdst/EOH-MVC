@@ -6,7 +6,7 @@
         $("html, body").animate({scrollTop: jumpLoc}, 1000);
     }); 
 </script>
-<div class="container">
+<div class="container dynamic-page">
 <?php foreach ($data['data'] as $row) { ?>
     <div class="row">
         <!-- Column 1 -->

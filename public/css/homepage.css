@@ -1,5 +1,8 @@
-.flat-page{
+.flat-page, .dynamic-page{
     margin-top: 140px;
+}
+.dynamic-page{
+    min-height: 75vh;
 }
 .banner {
     background: url(../images/himalaya.jpg) no-repeat center center;
@@ -50,7 +53,7 @@
     font-weight: 300;
     color: #333;
 }
-.prelims p {
+.prelims p, .footer p {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     line-height: 28px;
@@ -145,7 +148,6 @@
     background-color: rgba(0, 0, 0, 0.4);
     padding: 10px;
 }
-
 
 @media(min-width:768px) {
     .banner .overlay {

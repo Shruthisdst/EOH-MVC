@@ -60,6 +60,9 @@
 			<!-- Blessings -->
 			<div class="container-fluid blessing prelims">
 			    <div class="row justify-content-center text-center">
+			        <div class="col-md-12">
+			        	<img src="<?=PUBLIC_URL?>images/logo.png" />
+			       	</div>
 			        <div class="col-md-4">
 			        	<p>Swami Virajananda (6<sup>th</sup> President)</p></p>
 			        	<img class="img-fluid" src="<?=PUBLIC_URL?>images/sign1.jpg" />
