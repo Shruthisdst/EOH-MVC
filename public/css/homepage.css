@@ -4,6 +4,7 @@
 .dynamic-page{
     min-height: 75vh;
     font-family: 'Raleway', sans-serif;
+    color: #222;
 }
 .banner {
     background: url(../images/himalaya.jpg) no-repeat center center;

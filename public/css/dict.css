@@ -5,7 +5,7 @@
 
 /*styles for Dictionary words*/
 .multi-column {
-	column-rule: 1px solid #EEE;
+	column-rule: 1px solid #ddd;
 	-webkit-column-count: 2;
 	-moz-column-count: 2;
 	column-count: 2;
@@ -63,256 +63,78 @@
 	line-height: 24px;
 }
 
-.word, .images_list{
-	font-family: 'GentiumPlus-R';
+
+.word > div:empty {
+	display: none;
+}
+.word {
     margin: 0 0 30px 0;
     padding: 20px 20px 40px 20px;
     box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-    line-height: 1.3;
-    min-height: 200px;
+    line-height: 24px;
+	font-weight: 300;
 }
-.word:first-of-type{
-	margin-top: 0em;	
+.word div.head-word{
+	color: #1565C0;
+	font-size: 32px;
+	font-weight: 300;
 }
-.word .wBody{
-	margin: 5px 0 0 50px;
-	font-size: 1.1em;
+.word div.head-word-note{
+	font-size: 18px;
+	margin-top: 20px;
 }
-.vnum{
-	float: right;
-	font-size: 1.2em;
+.word div.alias-word{
+	margin-top: 20px;
+	font-size: 28px;
+	font-weight: 300;
 }
-.word .wBody ol{
-  padding:0;
-  counter-reset:item;
+.word div.alias-word-note{
+	font-size: 18px;
+	margin-top: 20px;
 }
-.word .wBody ol>li {
-  margin:0;
-  padding:0 0 0.7em 2em;
-  text-indent:-1.6em;
-  list-style-type:none;
-  counter-increment:item;
+.word div.description{
+	border-top: 1px solid #ddd;
+	margin-top: 20px;
+	padding-top: 20px;
 }
-.word .wBody ol>li:before {
-  display:inline-block;	
-  width:1.5em;
-  padding-right:0.5em;
-  font-weight:bold;
-  text-align:right;
-  content:counter(item) ".";
+.word div.description h1{
+	margin-top: 30px;
+	font-size: 24px;
+	font-weight: 400;
 }
-.word .wBody .lower-alpha{
-  padding:0;
-  list-style-type:none;
-  counter-reset:item;
+.word div.description h2{
+	margin-top: 15px;
+	font-size: 20px;
+	font-weight: 400;
 }
-.word .wBody .lower-alpha>li {
-  margin:0;
-  padding:0 0 0.7em 2em;
-  text-indent:-1.6em;
-  counter-increment:item;
+.word div.description h3{
+	font-size: 18px;
+	font-weight: 400;
 }
-
-.word .wBody .lower-alpha>li:before {
-  display:inline-block;
-  width:1.5em;
-  padding-right:0.5em;
-  font-weight:bold;
-  text-align:right;
-  content:counter(item, lower-alpha) ".";
+.word div.description h4,
+.word div.description h5,
+.word div.description h6{
+	font-weight: 400;
 }
-.word .wBody .lower-roman{
-  padding:0;
-  list-style-type:none;
-  counter-reset:item;
+.word div.description table,
+.word div.description dl {
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
-
-.word .wBody .lower-roman>li {
-  margin:0;
-  padding:0 0 0.7em 2em;
-  text-indent:-1.6em;
-  counter-increment:item;
+.word div.description table{
+	border-collapse: collapse;
 }
-
-.word .wBody .lower-roman>li:before {
-  display:inline-block;
-  width:1.5em;
-  padding-right:0.5em;
-  font-weight:bold;
-  text-align:right;
-  content:counter(item, lower-roman) ".";
+.word div.description table td,
+.word div.description table th{
+	padding: 8px;
+	border: 1px solid #ddd;
 }
-.unlist{
-	list-style-type: none;
+.word div.description .lower-alpha{
+	list-style-type: lower-alpha;
 }
-
-.word .wBody p{
-    line-height: 1.5;
-    margin: 0 0;
-    padding-bottom: 0.8em;
+.word div.description dl dd{
+	margin-left: 30px;
 }
-.whead .engWord{
-	font-size: 1.5em !important;
-    font-weight: bold;
-}
-.clr1{
-  color: #3372df !important;
-}
-.kanWord{
-	font-weight: bold;
-    font-size: 1.1em;
-}
-.grammarLabel{
-    font-style: italic;
-    font-size: 1.1em;
-    margin: 10px 0px 5px 15px;
-    color: #950C0C;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #DEDEDE;        
-}
-.expl{
-    font-size: 1.1em;
-    margin: 10px 0px 5px 15px;
-    padding-bottom: 5px;
-}
-
-.eng{
-	font-size:1.1em;
-}
-
-.engit{
-	font-style: italic;	
-	font-size:1.1em;
-}
-
-p.bracket_grp{
-	font-size: 0.8em;
-    margin: 0px;
-}
-
-.crossref{
-	color: #3372df;
-}
-.seecrossref{
-	color: #3372df;
-}
-.seecrossref a:hover{
-	border-bottom: 1px dotted #3372df;
-}
-.seeinnercrossref{
-	color: #3372df;
-}
-.kanWord img{
-	vertical-align: bottom;
-}
-.img_display{
-	margin-top: 50px;
-	text-align: center;
-}
-.fig_caption{
-	color: #3372df;	
-}
-.img_display img{
-	padding:1px;
-	border:1px solid #021a40;
-}
-div.seealso{
-	padding: 0.2em 0em 0.2em 1.5em;
-	background-color: #F9C26F;
-	margin-bottom: 1em;
-}
-.seealsoword{
-	font-style: italic;
-	font-weight: bold;
-	color: #3372df;
-    margin-left: 3px;
-}
-.crossref a img{
-	display: block;
-	margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.seecrossref a img{
-	float: right;
-	vertical-align: middle;
-}
-
-.alpha_link {
-	font-size: 2em;
-	padding-right: 1.5em;
-	color: #3372df;
-}
-
-.alpha_link1 {
-	font-size: 2em;
-	padding-right: 1.5em;
-	color: #CCCCCC;
-}
-
-.alpha_list{
-	margin-top: 3em;
-}
-
-.label_word{
-	font-size: 0.8em;
-}
-
-.highlight{
-	background: #F9C26F;
-}
-
-.boldText{
-	font-weight: bold;
-}
-em{
-    font-style: italic;
-}
-.poem{
-	font-style: italic;
-}
-h1.normalText{
-	font-size: 15.4px;
-	color: #950C0C;
-}
-h3.italicBold{
-	color: #950C0C;
-	font-size: 15.4px;
-	font-weight: 700;
-	font-style: italic;
-}
-h2.italicText{
-	font-size: 15.4px;
-	color: #950C0C;
-	font-style: italic;
-	margin-bottom: 8px;
-}
-
-.fntsymbol{
-	color: red;
-}
-dl dd{
-	padding-left: 2.5em;
-	padding-bottom: 0.7em;
-}
-.FootNote{
-	border-top: 1px solid #000;
-	font-size: 0.9em;
-}
-table tr td{
-	padding: 5px;
-}
-.figCaption{
-	text-align: center;
-	font-weight: bold;
-	font-size: 1em;
-}
-.img-thumbnail{
-	margin-top: 5em;
-}
-.img-responsive{
-	margin-top: 5em;
-}
-.linkword{
-	border-bottom: 1px dotted red;
+.word div.description a{
+	color: #1565C0;
 }
