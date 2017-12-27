@@ -114,7 +114,7 @@
 .about-content .tab-pane .prelims{
     padding-top: 40px;
 }
-.dedication h2{
+.dedication h2, .author h2{
     text-align: center;
 }
 .dedication .verse{
@@ -127,26 +127,6 @@
 }
 .blessing img{
     margin-bottom: 20px;
-}
-.author {
-    background: url(../images/author.jpg) no-repeat center center;
-    /*background-attachment: fixed;*/
-    display: table;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    color: #FFF;
-    height: 90vh;
-}
-.author .row{
-    height: 100%;
-}
-.author.prelims p{
-    line-height: 24px;
-}
-.author .overlay{
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 10px;
 }
 
 @media(min-width:768px) {
@@ -174,15 +154,8 @@
     .prelims p{
         margin: 20px 0;
     }
-    .dedication h2{
+    .dedication h2, .author h2{
         text-align: left;
-    }
-    .author .overlay{
-        padding: 40px;
-        line-height: 36px;
-    }
-    .author.prelims p{
-        line-height: 28px;
     }
 }
 

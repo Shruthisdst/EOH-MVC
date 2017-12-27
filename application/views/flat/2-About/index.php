@@ -48,9 +48,12 @@
 		</div>
 		<div class="tab-pane fade" id="nav-author" role="tabpanel" aria-labelledby="nav-author-tab">
 			<!-- Author -->
-			<div class="container-fluid author prelims">
-			    <div class="row justify-content-end">
-			        <div class="col-md-5 align-self-end overlay">
+			<div class="container author prelims">
+			    <div class="row justify-content-center">
+			        <div class="col-md-4 align-self-center">
+			        	<img class="img-fluid" src="<?=PUBLIC_URL?>images/author.jpg" />
+			    	</div>
+			        <div class="col-md-6 align-self-center">
 			        	<p><strong>Swami Harshanandaji</strong>, the author of this work, is a senior monk of the Ramakrishna Monastic Order. He was posted as the President of the Bangalore Ashrama in May 1989 and is continuing as such. The Swami is an initiated disciple of Swami Virajananda, the sixth President of the Order. He was ordained sannyasa in 1962 by Swami Vishuddhananda, the eighth President of the Order. He has worked in several centres of the Ramakrishna Math such as those in Mangalore, Mysore, Belur Math and Allahabad.</p>
 			    	</div>
 				</div>
