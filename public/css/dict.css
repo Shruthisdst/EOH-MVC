@@ -138,3 +138,14 @@
 .word div.description a{
 	color: #1565C0;
 }
+.word a{
+	color: inherit;
+}
+.word a:hover{
+	text-decoration: none;
+}
+.word.search{
+	max-height: 300px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}

@@ -7,49 +7,64 @@ class searchModel extends Model {
 		parent::__construct();
 	}
 
-	public function formQuery($data, $orderBy = '') {
+	public function formExactMatchQuery($data, $table, $orderBy = '') {
 
-		$textArray = array();
-		$textQuery = '';
-	
-		$filter = '';
-		$words = array();
-
-		if(isset($data['fulltext'])) {
-
-			$filter = 'id IN (SELECT id FROM fulltextsearch WHERE MATCH (text) AGAINST (? IN BOOLEAN MODE))';
-			array_push($words, $data['fulltext']);
-			unset($data['fulltext']);
-		}
-
-		$data = $this->regexFilter($data);
-
-		if($filter != '') array_unshift($data['filter'], $filter);
-		$data['words'] = array_merge($words, $data['words']);
-
-
-		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
-		$sqlStatement = 'SELECT * FROM ' . METADATA_TABLE . ' WHERE ' . $textQuery . $sqlFilter . $orderBy;
+		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE word = ?  ' . $orderBy;
 
 		$data['query'] = $sqlStatement;
-		$data['words'] = array_merge($textArray, $data['words']);
-
+		$data['words'] = array($data['word']);
 		return $data;
 	}
 
-	public function executeQuery($query,$parameters) {
+	public function formPartialMatchQuery($data, $table, $orderBy = '') {
+
+		$word = $data['aliasWord'];
+		unset($data['word']);
+
+		$data = $this->regexFilter($data);
+
+		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
+
+		$data['query'] = 'SELECT * FROM ' . $table . ' WHERE ' . $sqlFilter . ' AND aliasWord != ?' . $orderBy;
+
+		array_push($data['words'], $word);
+		return $data;
+	}
+
+	public function formDescriptionMatchQuery($data, $table, $orderBy = '') {
+
+		$word = $data['word'];
+		$data['description'] = $word;
+		unset($data['word']);
+		unset($data['aliasWord']);
+
+		$data = $this->regexFilter($data);
+		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
+
+		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE ' . $sqlFilter . ' AND word != ? ' . $orderBy;
+
+		array_push($data['words'], $word);
+		$data['query'] = $sqlStatement;
+		return $data;
+	}
+
+	public function executeQuery($query, $parameters)  {
 
 		$dbh = $this->db->connect(DB_NAME);
 
 		$sth = $dbh->prepare($query);
 		$sth->execute($parameters);
 
-		$data = null;
-		$i = 0;
-		while($result = $sth->fetch(PDO::FETCH_OBJ))
-		{
-			$data[$i] = $result;
-	        $i++;
+		$data = [];
+		while($result = $sth->fetch(PDO::FETCH_ASSOC)) {
+			
+			// Extract head words and alias words along with their corresponding notes
+			$result = $this->extractDetailsFromDescription($result);
+
+			// Form proper html from xml elements
+			$result['description'] = $this->xmlToHtml($result['description']);
+
+			array_push($data, $result);
 		}
 		$dbh = null;
 
@@ -85,70 +100,6 @@ class searchModel extends Model {
 
 		$data['filter'] = $filter;
 
-		return $data;
-	}
-
-	public function formGeneralQuery($data, $table, $orderBy = '') {
-
-		$word = $data['word'];
-
-		$data = $this->regexFilter($data);
-		$data['words'] = array_merge($data['words'], $data['words']);
-
-		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
-
-		$sqlFilteralias = $sqlFilter;
-		$sqlFilteralias = str_replace('word', 'aliasWord', $sqlFilteralias);
-		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE (' . $sqlFilter . ') | ('. $sqlFilteralias .') and word != ?' . $orderBy;
-
-		$data['query'] = $sqlStatement;
-		array_push($data['words'], $word);
-
-		return $data;
-	}
-
-	public function formStrictQuery($data, $table, $orderBy = '') {
-
-		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE word = ?  ' . $orderBy;
-
-		$data['query'] = $sqlStatement;
-		$data['words'] = array($data['word']);
-		return $data;
-	}	
-
-	public function formDescriptionQuery($data, $table, $orderBy = '') {
-
-		$word = $data['word'];
-		$data['description'] = $word;
-		unset($data['word']);
-
-		$data = $this->regexFilter($data);
-		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
-
-		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE ' . $sqlFilter . ' ' . $orderBy;
-
-		$data['query'] = $sqlStatement;
-		$data['description'] = $data['words'];
-		unset($data['words']);
-		return $data;
-	}
-
-	public function handleSpecialCases($data) {
-
-		// This method allows us to do a 'this or that' kind of search; special cases need to be listed here
-		$return = array();
-		foreach ($data as $word) {
-			
-			$newWord = preg_replace('/bangalore/', 'bengaluru|bangalore', $word);
-			array_push($return, $newWord);
-		}
-		return $return;
-	}
-
-	public function searchPatches($data) {
-
-		// Special cases in searches are dealt with here
-		if(isset($data['authors'])) $data['authors'] = '"full":".*' . $data['authors'] . '[^"]*","first"';
 		return $data;
 	}
 }

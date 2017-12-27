@@ -15,22 +15,25 @@ class search extends Controller {
 	public function field() {
 		
 		$data = $this->model->getGetData();
-		// var_dump($data);
+		$data['aliasWord'] = $this->model->removeDiacrtics($data['word']);
+
 		unset($data['url']);
 
-		// Check if any data is posted. For this journal name should be excluded.
+		// Check if any data is posted.
 		if($data) {
 
 			$data = $this->model->preProcessPOST($data);
 
-			$query = $this->model->formStrictQuery($data, METADATA_TABLE);
-			$result['A'] = $this->model->executeQuery($query['query'],$query['words']);
+			$query = $this->model->formExactMatchQuery($data, METADATA_TABLE);
+			$result['exactMatch'] = $this->model->executeQuery($query['query'], $query['words']);
 
-			$query = $this->model->formGeneralQuery($data, METADATA_TABLE);
-			$result['B'] = $this->model->executeQuery($query['query'],$query['words']);
+			$query = $this->model->formPartialMatchQuery($data, METADATA_TABLE);
+			$result['partialMatch'] = $this->model->executeQuery($query['query'], $query['words']);
 
-			$query = $this->model->formDescriptionQuery($data, METADATA_TABLE, 'ORDER BY word');
-			$result['C'] = $this->model->executeQuery($query['query'],$query['description']);
+			$query = $this->model->formDescriptionMatchQuery($data, METADATA_TABLE, 'ORDER BY word');
+			$result['descriptionMatch'] = $this->model->executeQuery($query['query'], $query['words']);
+
+			$result['word'] = $data['word'];
 
 			($result) ? $this->view('search/result', $result) : $this->view('error/noResults', 'search/index/');
 		}

@@ -152,6 +152,69 @@ class Model {
  
  		return $files;
  	}
+
+	public function removeDiacrtics($aliasword) {
+
+		$aliasword = str_replace('Ā', 'A', $aliasword);
+		$aliasword = str_replace('ā', 'a', $aliasword);
+		$aliasword = str_replace('Ś', 'S', $aliasword);
+		$aliasword = str_replace('ś', 's', $aliasword);
+		$aliasword = str_replace('Ū', 'U', $aliasword);
+		$aliasword = str_replace('ū', 'u', $aliasword);
+		$aliasword = str_replace('Ṣ', 'S', $aliasword);
+		$aliasword = str_replace('ṣ', 's', $aliasword);
+		$aliasword = str_replace('Ī', 'I', $aliasword);
+		$aliasword = str_replace('ī', 'i', $aliasword);
+		$aliasword = str_replace('Ṅ', 'N', $aliasword);
+		$aliasword = str_replace('ṅ', 'n', $aliasword);
+		$aliasword = str_replace('Ṛ', 'R', $aliasword);
+		$aliasword = str_replace('ṛ', 'r', $aliasword);
+		$aliasword = str_replace('Ṭ', 'T', $aliasword);
+		$aliasword = str_replace('ṭ', 't', $aliasword);
+		$aliasword = str_replace('Ṇ', 'N', $aliasword);
+		$aliasword = str_replace('ṇ', 'n', $aliasword);
+		$aliasword = str_replace('Ḍ', 'D', $aliasword);
+		$aliasword = str_replace('ḍ', 'd', $aliasword);
+		$aliasword = str_replace('Ṁ', 'M', $aliasword);
+		$aliasword = str_replace('ṁ', 'm', $aliasword);
+		$aliasword = str_replace('Ñ', 'N', $aliasword);
+		$aliasword = str_replace('ñ', 'n', $aliasword);
+		$aliasword = str_replace('Ḥ', 'H', $aliasword);
+		$aliasword = str_replace('ḥ', 'h', $aliasword);
+		$aliasword = str_replace('Ḷ', 'L', $aliasword);
+		$aliasword = str_replace('ḷ', 'l', $aliasword);
+		$aliasword = str_replace('Ṝ', 'R', $aliasword);
+		$aliasword = str_replace('ṝ', 'r', $aliasword);
+
+		return $aliasword;
+	}
+
+	public function extractDetailsFromDescription($word) {
+		
+		// var_dump($word);
+        $xml = simplexml_load_string($word['description']);
+        $head = $xml->head;
+        $note = $head->note;
+
+        $word['description'] = $xml->description->asXML();
+        $word['description'] = preg_replace('/<\/*description>/', '', $word['description']);
+
+        $word['alias'] = (isset($head->alias)) ? (String) $head->alias : '';
+        $word['wordNote'] = (sizeof($note) > 1) ? (String) $note[0] : (String) $note;
+        $word['aliasNote'] = (sizeof($note) > 1) ? (String) $note[1] : '';
+
+		// $word['head'] = 
+		return $word;
+	}
+
+	public function xmlToHtml($html) {
+
+		// Reform refs
+		$html = str_replace('<ref ', '<a ', $html);
+		$html = str_replace('</ref>', '</a>', $html);
+		return $html;
+	}
+
 }
 
 ?>

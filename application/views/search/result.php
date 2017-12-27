@@ -1,28 +1,30 @@
+<?php 
+$data['match'] = array_merge($data['exactMatch'], $data['partialMatch']);
+$searchText = $data['word'];
+// unset($data['exactMatch']);
+// unset($data['partialMatch']);
+?>
 <div class="container dynamic-page">
-    <div class="row">
-        <div class="col-md-12">
-        <p id="results_nav" style="float: right;">
-        	<a href="#A_results">Exact Match(<?=sizeof($data['A'])?>)</a>&nbsp; | &nbsp;
-        	<a href="#B_results">Partial Match(<?=sizeof($data['B'])?>)</a>&nbsp; | &nbsp;
-        	<a href="#C_results">In Description(<?=sizeof($data['C'])?>)</a> 
-        </p>
-<?php foreach ($data as $key => $array) { ?>
-
-	<?=$viewHelper->displayTitle($key)?>
-
-	<?php if( ($data[$key]) && ($key != 'C')): ?>
-		<?php foreach ($array as $row) { ?>
-    	    <?=$viewHelper->preProcessDescription($row->description,$row->word,$row->vnum,$row->id)?>
-		<?php } ?>
-	<?php elseif(($data[$key]) && ($key == 'C')): ?>
-		<?php foreach ($array as $row) { ?>
-    	    <?=$viewHelper->preProcessInDescription($row->description,$row->word,$row->vnum,$row->id,$key)?>	
-		<?php } ?>
-	<?php else: ?>
-		<p class="no-results">No Results</p>
-	<?php endif; ?>	
-
-<?php } ?>
+    <div class="row justify-content-start">
+<?php foreach ($data['match'] as $row) { ?>
+        <div class="col-md-4">
+            <div class="word search">
+                <?php if($row['word']) { ?><div class="head-word"><a href="<?=BASE_URL?>describe/word/<?=$row['word']?>"><?=$viewHelper->highlight($row['word'], $searchText)?></a></div><?php } ?>
+                <?php if($row['wordNote']) { ?><div class="head-word-note"><?=$row['wordNote']?></div><?php } ?>
+                <?php if($row['description']) { ?><div class="description"><?=$row['description']?></div><?php } ?>
+            </div>
         </div>
-    </div>    
+<?php } ?>
+    </div>
+    <div class="row justify-content-start">
+<?php foreach ($data['descriptionMatch'] as $row) { ?>
+        <div class="col-md-12">
+            <div class="word search">
+                <?php if($row['word']) { ?><div class="head-word"><a href="<?=BASE_URL?>describe/word/<?=$row['word']?>"><?=$row['word']?></a></div><?php } ?>
+                <?php if($row['wordNote']) { ?><div class="head-word-note"><?=$row['wordNote']?></div><?php } ?>
+                <?php if($row['description']) { ?><div class="description"><?=$row['description']?></div><?php } ?>
+            </div>
+        </div>
+<?php } ?>
+    </div>
 </div>
