@@ -41,7 +41,7 @@ class searchModel extends Model {
 		$data = $this->regexFilter($data);
 		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
 
-		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE (' . $sqlFilter . ') AND (aliasWord NOT REGEXP ?) ' . $orderBy;
+		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE (' . $sqlFilter . ') AND (word NOT REGEXP ?) ' . $orderBy;
 
 		array_push($data['words'], explode(' ', $word)[0]);
 		$data['query'] = $sqlStatement;
