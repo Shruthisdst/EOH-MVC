@@ -61,8 +61,8 @@
                     <li><a href="<?=BASE_URL?>listing/alphabet/A">Index</a></li>
                     <li id="openNavbarSearch"><a><i class="fa fa-search"></i></a></li>
                 </ul>
-                <form id="navbarSearch" class="form-inline">
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Search"></div>
+                <form id="navbarSearch" class="form-inline" action="<?=BASE_URL?>search/field/">
+                    <div class="form-group"><input type="text" name="word" id="word" class="form-control" placeholder="Search"></div>
                 </form>
             </div>
         </div>

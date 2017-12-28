@@ -2,7 +2,9 @@
     <div class="row justify-content-center overlay">
         <div class="col-md-12 align-self-center">
         	<h1><small>A Concise</small><br />Encyclopaedia of Hinduism</h1>
-        	<input type="text" class="bigSearch mx-auto" placeholder="Search..." />
+            <form action="<?=BASE_URL?>search/field/">
+            	<input type="text" name="word" id="word" class="bigSearch mx-auto" placeholder="Search..." />
+            </form>
     	</div>
 		<a id="section05" class="scrollMore" href="#wordOfTheDay"><span></span>&nbsp;</a>
 	</div>

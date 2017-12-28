@@ -25,7 +25,7 @@ class searchModel extends Model {
 
 		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
 
-		$data['query'] = 'SELECT * FROM ' . $table . ' WHERE ' . $sqlFilter . ' AND aliasWord != ?' . $orderBy;
+		$data['query'] = 'SELECT * FROM ' . $table . ' WHERE (' . $sqlFilter . ') AND (aliasWord != ?)' . $orderBy;
 
 		array_push($data['words'], $word);
 		return $data;
@@ -41,9 +41,9 @@ class searchModel extends Model {
 		$data = $this->regexFilter($data);
 		$sqlFilter = (count($data['filter'] > 1)) ? implode(' and ', $data['filter']) : array_values($data['filter']);
 
-		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE ' . $sqlFilter . ' AND word != ? ' . $orderBy;
+		$sqlStatement = 'SELECT * FROM ' . $table . ' WHERE (' . $sqlFilter . ') AND (aliasWord NOT REGEXP ?) ' . $orderBy;
 
-		array_push($data['words'], $word);
+		array_push($data['words'], explode(' ', $word)[0]);
 		$data['query'] = $sqlStatement;
 		return $data;
 	}
@@ -56,6 +56,7 @@ class searchModel extends Model {
 		$sth->execute($parameters);
 
 		$data = [];
+		$words = [];
 		while($result = $sth->fetch(PDO::FETCH_ASSOC)) {
 			
 			// Extract head words and alias words along with their corresponding notes
@@ -64,8 +65,10 @@ class searchModel extends Model {
 			// Form proper html from xml elements
 			$result['description'] = $this->xmlToHtml($result['description']);
 
+			array_push($words, $result['word']);
 			array_push($data, $result);
 		}
+		$data['words'] = $words;
 		$dbh = null;
 
 		return $data;

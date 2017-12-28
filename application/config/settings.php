@@ -5,7 +5,7 @@ define('DEFAULT_LETTER', 'A');
 define('METADATA_TABLE', 'encyclopaedia');
 
 // search settings
-define('SEARCH_OPERAND', 'AND');
+define('SEARCH_OPERAND', 'OR');
 
 // user settings (login and registration)
 define('SALT', 'eoh');

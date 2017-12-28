@@ -16,7 +16,7 @@ class search extends Controller {
 		
 		$data = $this->model->getGetData();
 		$data['aliasWord'] = $this->model->removeDiacrtics($data['word']);
-
+		$words = [];
 		unset($data['url']);
 
 		// Check if any data is posted.
@@ -27,11 +27,24 @@ class search extends Controller {
 			$query = $this->model->formExactMatchQuery($data, METADATA_TABLE);
 			$result['exactMatch'] = $this->model->executeQuery($query['query'], $query['words']);
 
+			$words = array_merge($words, $result['exactMatch']['words']);
+			unset($result['exactMatch']['words']);
+			
 			$query = $this->model->formPartialMatchQuery($data, METADATA_TABLE);
 			$result['partialMatch'] = $this->model->executeQuery($query['query'], $query['words']);
 
+			$words = array_merge($words, $result['partialMatch']['words']);
+			unset($result['partialMatch']['words']);
+
+			$data['word'] .= ' ' . implode(' ', $words);
+
 			$query = $this->model->formDescriptionMatchQuery($data, METADATA_TABLE, 'ORDER BY word');
 			$result['descriptionMatch'] = $this->model->executeQuery($query['query'], $query['words']);
+
+			// var_dump($query);
+			// return;
+
+			unset($result['descriptionMatch']['words']);
 
 			$result['word'] = $data['word'];
 
