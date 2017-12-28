@@ -24,30 +24,30 @@ class search extends Controller {
 
 			$data = $this->model->preProcessPOST($data);
 
+			// Exact match
 			$query = $this->model->formExactMatchQuery($data, METADATA_TABLE);
 			$result['exactMatch'] = $this->model->executeQuery($query['query'], $query['words']);
 
 			$words = array_merge($words, $result['exactMatch']['words']);
 			unset($result['exactMatch']['words']);
 			
+			// Patial match
 			$query = $this->model->formPartialMatchQuery($data, METADATA_TABLE);
 			$result['partialMatch'] = $this->model->executeQuery($query['query'], $query['words']);
 
 			$words = array_merge($words, $result['partialMatch']['words']);
 			unset($result['partialMatch']['words']);
 
-			$data['word'] .= ' ' . implode(' ', $words);
+			// Prepare a string containing all exact match words containing the search word
+			$data['word'] = $this->model->retainRequiredWords($words, $data['word']);
 
+			// Description match
 			$query = $this->model->formDescriptionMatchQuery($data, METADATA_TABLE, 'ORDER BY word');
 			$result['descriptionMatch'] = $this->model->executeQuery($query['query'], $query['words']);
-
-			// var_dump($query);
-			// return;
 
 			unset($result['descriptionMatch']['words']);
 
 			$result['word'] = $data['word'];
-
 			($result) ? $this->view('search/result', $result) : $this->view('error/noResults', 'search/index/');
 		}
 		else {

@@ -105,6 +105,22 @@ class searchModel extends Model {
 
 		return $data;
 	}
+
+	public function retainRequiredWords($words, $searchedWord) {
+
+		$allWords = implode(' ', $words);
+		$diacriticWords = explode(' ', $allWords); 
+		$noDiacriticWords = explode(' ', $this->removeDiacrtics($allWords)); 
+		$res = preg_grep('/.*' . str_replace(' ', '|', $this->removeDiacrtics($searchedWord)) . '.*/i', $noDiacriticWords);
+
+		$data['word'] = [];
+		foreach ($res as $key => $value) {
+			
+			array_push($data['word'], $diacriticWords[$key]);
+		}
+		
+		return (!$res) ? $searchedWord : $searchedWord . '|' . implode('|', array_unique($data['word']));
+	}
 }
 
 ?>
