@@ -2,6 +2,8 @@
 
 class Model {
 
+	protected $figCount = 0;
+
 	public function __construct() {
 
 		$this->db = new Database();
@@ -203,18 +205,34 @@ class Model {
         $word['wordNote'] = (sizeof($note) > 1) ? (String) $note[0] : (String) $note;
         $word['aliasNote'] = (sizeof($note) > 1) ? (String) $note[1] : '';
 
-		// $word['head'] = 
 		return $word;
 	}
 
-	public function xmlToHtml($html) {
+	public function xmlToHtml($html, $word) {
 
 		// Reform refs
 		$html = str_replace('<ref href="', '<a href="' . BASE_URL . 'describe/word/', $html);
 		$html = str_replace('</ref>', '</a>', $html);
+
+		// Handle figures
+		// Without caption
+		$html = preg_replace_callback('/<figure><figcaption\/><\/figure>/', function ($matches) use($word) {
+        	
+			$suffix = (++$this->figCount > 1) ? '_' . $this->figCount : '';
+        	return '
+				<img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.png" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.png" alt="' . $word . '">';
+        	}, $html);
+
+		// With caption
+		$html = preg_replace_callback('/<figure><figcaption>(.*?)<\/figcaption><\/figure>/', function ($matches) use($word) {
+     
+     		$suffix = (++$this->figCount > 1) ? '_' . $this->figCount : '';
+        	return '
+				<img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.png" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.png" alt="' . $matches[1] . '">';
+        	}, $html);
+
 		return $html;
 	}
-
 }
 
 ?>

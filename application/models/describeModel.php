@@ -23,7 +23,7 @@ class describeModel extends Model {
 			$result = $this->extractDetailsFromDescription($result);
 
 			// Form proper html from xml elements
-			$result['description'] = $this->xmlToHtml($result['description']);
+			$result['description'] = $this->xmlToHtml($result['description'], $result['word']);
 
 			array_push($data, $result);
 		}

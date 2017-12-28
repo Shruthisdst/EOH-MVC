@@ -63,7 +63,7 @@ class searchModel extends Model {
 			$result = $this->extractDetailsFromDescription($result);
 
 			// Form proper html from xml elements
-			$result['description'] = $this->xmlToHtml($result['description']);
+			$result['description'] = $this->xmlToHtml($result['description'], $result['word']);
 			$result['description'] = $this->extractSnippet($result['description'], $searchWord);
 
 			array_push($words, $result['word']);

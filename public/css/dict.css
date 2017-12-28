@@ -141,6 +141,12 @@
 .word div.description a{
 	color: #1565C0;
 }
+.word div.description img{
+	max-width: 300px;
+	margin: 40px auto;
+	display: block;
+	cursor: pointer;
+}
 .word a{
 	color: inherit;
 }

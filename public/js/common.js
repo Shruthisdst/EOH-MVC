@@ -1,3 +1,7 @@
+var vieweroptions = { url: 'data-original' };
+if(document.getElementById('describeWord'))
+    var viewer = new Viewer(document.getElementById('describeWord'), vieweroptions);
+
 $(document).ready(function() {
 
     // Home page snippets - UI related
@@ -10,9 +14,9 @@ $(document).ready(function() {
     // About page, nav tabs on show event
     $('.about-tabs a[data-toggle="tab"]').on('shown.bs.tab', function (event) {
 
-		var jumpLoc = $('.about-tabs').offset().top - $('#mainNavBar').height() - 50;
-    	$("body").animate({scrollTop: jumpLoc}, 500);
-	})
+        var jumpLoc = $('.about-tabs').offset().top - $('#mainNavBar').height() - 50;
+        $("body").animate({scrollTop: jumpLoc}, 500);
+    })
 });
 
 

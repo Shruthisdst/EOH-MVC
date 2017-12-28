@@ -1,4 +1,4 @@
-<div class="container dynamic-page">
+<div class="container dynamic-page" id="describeWord">
     <div class="row">
 		<div class="col-md-12">
 <?php foreach ($data as $row) { ?>
@@ -24,7 +24,10 @@ $(document).ready(function() {
 
     $('.word .description').html(html);
 
-	var jumpLoc = $('.highlight').offset().top - $('#mainNavBar').height() - 50;
-	$("body").animate({scrollTop: jumpLoc}, 500);
+    var highlight = $('.highlight');
+    if(highlight.length) {
+		var jumpLoc = $('.highlight').offset().top - $('#mainNavBar').height() - 50;
+		$("body").animate({scrollTop: jumpLoc}, 500);
+	}
 });
 </script>
