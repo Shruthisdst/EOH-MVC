@@ -210,7 +210,7 @@ class Model {
 	public function xmlToHtml($html) {
 
 		// Reform refs
-		$html = str_replace('<ref ', '<a ', $html);
+		$html = str_replace('<ref href="', '<a href="' . BASE_URL . 'describe/word/', $html);
 		$html = str_replace('</ref>', '</a>', $html);
 		return $html;
 	}

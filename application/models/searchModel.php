@@ -48,7 +48,7 @@ class searchModel extends Model {
 		return $data;
 	}
 
-	public function executeQuery($query, $parameters)  {
+	public function executeQuery($query, $parameters, $searchWord)  {
 
 		$dbh = $this->db->connect(DB_NAME);
 
@@ -64,6 +64,7 @@ class searchModel extends Model {
 
 			// Form proper html from xml elements
 			$result['description'] = $this->xmlToHtml($result['description']);
+			$result['description'] = $this->extractSnippet($result['description'], $searchWord);
 
 			array_push($words, $result['word']);
 			array_push($data, $result);
@@ -120,6 +121,36 @@ class searchModel extends Model {
 		}
 		
 		return (!$res) ? $searchedWord : $searchedWord . '|' . implode('|', array_unique($data['word']));
+	}
+
+	public function extractSnippet($text, $searchWord) {
+
+		$snippetExtent = 10;
+		$searchWord = preg_replace('/(.*?) .*/', "$1", $searchWord);
+
+		$text = strip_tags($text);
+		$text = preg_replace('/\s+/', ' ', $text);
+
+		$words = explode(' ', $text);
+
+		$inKey = preg_grep('/' . $searchWord . '/i', $words);
+
+		if(sizeof($inKey) > 0) {
+
+			$inKey = array_pop(array_keys($inKey));
+
+			$left = $inKey - $snippetExtent;
+			$right = $inKey + $snippetExtent;
+
+			if($left < 0) $left = 0;
+			if($right >= sizeof($words)) $right = sizeof($words) - 1;
+
+			return implode(' ', array_slice($words, $left, $right - $left + 1));
+		}
+		else{
+
+			return '';
+		}
 	}
 }
 

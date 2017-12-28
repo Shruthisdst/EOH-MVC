@@ -6,8 +6,18 @@ class viewHelper extends View {
 
 	public function highlight($text, $word) {
 
-		$text = preg_replace('/(' . $word . ')/i', "<span class=\"highlight\">$1</span>", $text);
+		// $text = preg_replace('/(' . $word . ')/i', "<span class=\"highlight\">$1</span>", $text);
 		return $text;
+	}
+
+	public function getRegexText($searchText) {
+
+		$searchTextRegex = str_replace(' ', '|', $searchText);
+		$searchTextRegex = preg_replace('/(^.{0,2}\||\|.{0,2}\||\|.{0,2}$)/', '|', $searchTextRegex);
+		$searchTextRegex = preg_replace('/\|+/', '|', $searchTextRegex);
+		$searchTextRegex = preg_replace('/^\||\|$/', '', $searchTextRegex);
+
+		return $searchTextRegex;
 	}
 
     public function preProcessInDescription($description,$word,$vnum,$id,$key){

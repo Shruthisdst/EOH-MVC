@@ -26,14 +26,14 @@ class search extends Controller {
 
 			// Exact match
 			$query = $this->model->formExactMatchQuery($data, METADATA_TABLE);
-			$result['exactMatch'] = $this->model->executeQuery($query['query'], $query['words']);
+			$result['exactMatch'] = $this->model->executeQuery($query['query'], $query['words'], $data['word']);
 
 			$words = array_merge($words, $result['exactMatch']['words']);
 			unset($result['exactMatch']['words']);
 			
 			// Patial match
 			$query = $this->model->formPartialMatchQuery($data, METADATA_TABLE);
-			$result['partialMatch'] = $this->model->executeQuery($query['query'], $query['words']);
+			$result['partialMatch'] = $this->model->executeQuery($query['query'], $query['words'], $data['word']);
 
 			$words = array_merge($words, $result['partialMatch']['words']);
 			unset($result['partialMatch']['words']);
@@ -43,7 +43,7 @@ class search extends Controller {
 
 			// Description match
 			$query = $this->model->formDescriptionMatchQuery($data, METADATA_TABLE, 'ORDER BY word');
-			$result['descriptionMatch'] = $this->model->executeQuery($query['query'], $query['words']);
+			$result['descriptionMatch'] = $this->model->executeQuery($query['query'], $query['words'], $data['word']);
 
 			unset($result['descriptionMatch']['words']);
 

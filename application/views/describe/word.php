@@ -13,3 +13,18 @@
 		</div>
     </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    var searchText = decodeURIComponent(getUrlParameter('search'));
+
+    var html = $('.word .description').html();
+    var re = new RegExp("\\b" + '(' + searchText + ')' + "\\b", "gi");
+    html = html.replace(re, '<span class="highlight">' + "$1" + '</span>');
+
+    $('.word .description').html(html);
+
+	var jumpLoc = $('.highlight').offset().top - $('#mainNavBar').height() - 50;
+	$("body").animate({scrollTop: jumpLoc}, 500);
+});
+</script>
