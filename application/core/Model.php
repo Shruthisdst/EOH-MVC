@@ -2,7 +2,7 @@
 
 class Model {
 
-	protected $figCount = 0;
+	protected $elementCount = 0;
 
 	public function __construct() {
 
@@ -218,7 +218,7 @@ class Model {
 		// Without caption
 		$html = preg_replace_callback('/<figure><figcaption\/><\/figure>/', function ($matches) use($word) {
         	
-			$suffix = (++$this->figCount > 1) ? '_' . $this->figCount : '';
+			$suffix = (++$this->elementCount > 1) ? '_' . $this->elementCount : '';
         	return '
 				<img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.png" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.png" alt="' . $word . '">';
         	}, $html);
@@ -226,9 +226,18 @@ class Model {
 		// With caption
 		$html = preg_replace_callback('/<figure><figcaption>(.*?)<\/figcaption><\/figure>/', function ($matches) use($word) {
      
-     		$suffix = (++$this->figCount > 1) ? '_' . $this->figCount : '';
+     		$suffix = (++$this->elementCount > 1) ? '_' . $this->elementCount : '';
         	return '
 				<img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.png" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.png" alt="' . $matches[1] . '">';
+        	}, $html);
+
+		// Handle aside elements
+		$this->elementCount = 1;
+
+		$html = preg_replace_callback('/<aside>(.*?)<\/aside>/', function ($matches) {
+
+        	return '
+        		<sup><a tabindex="' . $this->elementCount . '" class="footNote" data-toggle="popover" data-content="' . $matches[1] . '">' . $this->elementCount++ . '</a></sup>';
         	}, $html);
 
 		return $html;

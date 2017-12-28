@@ -17,6 +17,15 @@ $(document).ready(function() {
         var jumpLoc = $('.about-tabs').offset().top - $('#mainNavBar').height() - 50;
         $("body").animate({scrollTop: jumpLoc}, 500);
     })
+
+    $(function () {
+        $('[data-toggle="popover"]').popover({
+
+            trigger: 'focus',
+            html: true,
+            placement: 'bottom'            
+        })
+    });
 });
 
 
