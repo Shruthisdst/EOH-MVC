@@ -215,20 +215,12 @@ class Model {
 		$html = str_replace('</ref>', '</a>', $html);
 
 		// Handle figures
-		// Without caption
-		$html = preg_replace_callback('/<figure><figcaption\/><\/figure>/', function ($matches) use($word) {
-        	
+		$html = preg_replace_callback('/<figure>(<figcaption\/>|<figcaption>(.*?)<\/figcaption>)<\/figure>/', function ($matches) use($word) {
+			
+			$caption = (isset($matches[2])) ? $matches[2] : $word;
 			$suffix = (++$this->elementCount > 1) ? '_' . $this->elementCount : '';
         	return '
-				<img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.png" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.png" alt="' . $word . '">';
-        	}, $html);
-
-		// With caption
-		$html = preg_replace_callback('/<figure><figcaption>(.*?)<\/figcaption><\/figure>/', function ($matches) use($word) {
-     
-     		$suffix = (++$this->elementCount > 1) ? '_' . $this->elementCount : '';
-        	return '
-				<img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.png" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.png" alt="' . $matches[1] . '">';
+				<img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.png" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.png" alt="' . $caption . '">';
         	}, $html);
 
 		// Handle aside elements
