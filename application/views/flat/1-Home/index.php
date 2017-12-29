@@ -6,7 +6,7 @@
             	<input type="text" name="word" id="word" class="bigSearch mx-auto" placeholder="Search..." />
             </form>
     	</div>
-		<a id="section05" class="scrollMore" href="#wordOfTheDay"><span></span>&nbsp;</a>
+		<a class="homepage scrollMore goTo" data-destination="#wordOfTheDay"><span></span>&nbsp;</a>
 	</div>
 </div>
 <div id="wordOfTheDay" class="container word-of-the-day prelims">

@@ -16,7 +16,15 @@ $(document).ready(function() {
 
         var jumpLoc = $('.about-tabs').offset().top - $('#mainNavBar').height() - 50;
         $("body").animate({scrollTop: jumpLoc}, 500);
-    })
+    });
+
+    $('.goTo').on('click', function (event) {
+
+        var destination = $(this).attr('data-destination');
+
+        var jumpLoc = $(destination).offset().top - $('#mainNavBar').height() - 50;
+        $("body").animate({scrollTop: jumpLoc}, 500);
+    });
 
     $(function () {
         $('[data-toggle="popover"]').popover({

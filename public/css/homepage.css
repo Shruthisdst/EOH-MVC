@@ -176,6 +176,7 @@ a.scrollMore {
   letter-spacing: .1em;
   text-decoration: none;
   transition: opacity .3s;
+  cursor: pointer;
 }
 a.scrollMore:hover {
   opacity: .5;
