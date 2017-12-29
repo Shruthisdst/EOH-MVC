@@ -4,10 +4,10 @@
 			<p id="prevNextWord">&nbsp;</p>
 <?php foreach ($data as $row) { ?>
 			<div class="word">
-				<?php if($row['word']) { ?><div class="head-word"><?=$row['word']?></div><?php } ?>
-				<?php if($row['wordNote']) { ?><div class="head-word-note"><?=$row['wordNote']?></div><?php } ?>
-				<?php if($row['alias']) { ?><div class="alias-word"><?=$row['alias']?></div><?php } ?>
-				<?php if($row['aliasNote']) { ?><div class="alias-word-note"><?=$row['aliasNote']?></div><?php } ?>
+				<?php if($row['word']) { ?><h1 class="head-word"><?=$row['word']?></h1><?php } ?>
+				<?php if($row['wordNote']) { ?><h3 class="head-word-note"><?=$row['wordNote']?></h3><?php } ?>
+				<?php if($row['alias']) { ?><h2 class="alias-word"><?=$row['alias']?></h2><?php } ?>
+				<?php if($row['aliasNote']) { ?><h3 class="alias-word-note"><?=$row['aliasNote']?></h3><?php } ?>
 				<?php if($row['description']) { ?><div class="description"><?=$row['description']?></div><?php } ?>
 			</div>
 <?php } ?>
@@ -18,7 +18,7 @@
 $(document).ready(function() {
 
 	// Next and previous links ajax requests
-	var word = $('.word div.head-word').html();
+	var word = $('.word h1.head-word').html();
 	$.get( '<?=BASE_URL?>api/getNeighbours/' + word, function( data ) {
 		
 		data = JSON.parse(data);
