@@ -96,9 +96,11 @@
 			        <div class="col-md-12">
 			        	<h2>Preface to the Three Volume Edition</h2>
 			        	<p>Hinduism is a great religion. The traditionalists however prefer to call it ‘Sanātana Dharma’. Perhaps, this is a far better term that reflects its true meaning and significance. The word dharma is generally used to denote religion, the path to perfection or beatitude. ‘Sanātana’ means ‘ancient’ as also ‘eternal’. Hence the expression means ‘the religion or the path of spiritual discipline that is not only ancient but also eternal’. In other words, Hinduism has been offering an unbroken continuous tradition of spiritual discipline which is not only very ancient but also relevant even to the modern times. The beauty of this tradition is that it proffers several alternatives that can suit different types of sādhakas (aspirants) instead of prescribing the same cap for every head. Thus, starting from the aspirant at the highest rung of the spiritual ladder who is fit to meditate on the non-dual Brahman (the Absolute), right up to the tyro worshipping the images, everyone has a place specially carved out for him.</p>
-				        <img src="<?=PUBLIC_URL?>images/volume1.jpg" />
-				        <img src="<?=PUBLIC_URL?>images/volume2.jpg" />
-				        <img src="<?=PUBLIC_URL?>images/volume3.jpg" />
+				        <div class="text-center">
+					        <img class="p-3" src="<?=PUBLIC_URL?>images/volume1.jpg" />
+					        <img class="p-3" src="<?=PUBLIC_URL?>images/volume2.jpg" />
+					        <img class="p-3" src="<?=PUBLIC_URL?>images/volume3.jpg" />
+			        	</div>
 			        	<p>Of late, study of Hinduism is drawing the attention of scholars both from India and from other countries. However, books on general Hinduism covering all aspects are not many. Even the few that are available deal with subjects like the Upanisads, the Bhagavadgītā, Vedānta systems and Yoga philosophy in greater detail ignoring other aspects relevant to popular Hinduism.</p>
 			        	<p>Hence there is a great need for an exhaustive omnibus type of work.</p>
 			        	<p>There were two choices before me:</p>
@@ -125,7 +127,9 @@
 			        	
 			        	<h2 class="mt-5">Preface to the Supplement</h2>
 			        	<p>The book, <i>A Concise Encyclopaedia of Hinduism</i> in three volumes, was brought out during May 2008. It was released on the 30th May 2008 by Bharat Ratna Dr. A. P. J. Abdul Kalam at an impressive function in the presence of a very large gathering of scholars, devotees and distinguished persons.</p>
-				        <img src="<?=PUBLIC_URL?>images/volume4.jpg" />
+				        <div class="text-center">
+					        <img class="p-3" src="<?=PUBLIC_URL?>images/volume4.jpg" />
+			        	</div>
 			        	<p>During this release function, Dr. Kalam had suggested that supplements can be brought out as and when new material is discovered or gathered.</p>
 			        	<p>This supplement is sequel to it. It contains some of the subjects omitted in the earlier volumes as also plenty of new material, especially related to the tantra-literature.</p>
 			        	<p>The entire system of arrangements adopted in the earlier volumes has been continued here also.</p>

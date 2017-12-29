@@ -40,8 +40,6 @@ $(document).ready(function() {
 
     var searchText = $('#searchText').html();
 
-    console.log(searchText);
-
     $('.word.search.in-description .description').each(function(){
 
         var html = $(this).html();
