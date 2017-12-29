@@ -141,11 +141,16 @@
 .word div.description a{
 	color: #1565C0;
 }
-.word div.description img{
+.word div.description figure{
 	max-width: 300px;
 	margin: 40px auto;
 	display: block;
 	cursor: pointer;
+	text-align: center;
+}
+.word div.description figure.figure figcaption.figure-caption{
+	color: #222;
+	padding-top: 10px;
 }
 .word div.description sup .footNote{
 	font-size: 16px;

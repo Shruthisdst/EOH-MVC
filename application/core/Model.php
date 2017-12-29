@@ -219,9 +219,16 @@ class Model {
 			
 			$caption = (isset($matches[2])) ? $matches[2] : $word;
 			$suffix = (++$this->elementCount > 1) ? '_' . $this->elementCount : '';
-        	return '
-				<img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.png" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.png" alt="' . $caption . '">';
-        	}, $html);
+        	
+        	$figHtml = '';
+        	$figHtml .= '<figure class="figure"><img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.jpg" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.jpg" alt="' . $caption . '">';
+
+			if(isset($matches[2])) $figHtml .=	'<figcaption class="figure-caption">' . $caption . '</figcaption>';
+
+			$figHtml .=	'</figure>';
+			return $figHtml;
+
+    	}, $html);
 
 		// Handle aside elements
 		$this->elementCount = 1;
@@ -230,7 +237,8 @@ class Model {
 
         	return '
         		<sup><a tabindex="' . $this->elementCount . '" class="footNote" data-toggle="popover" data-content="' . $matches[1] . '">' . $this->elementCount++ . '</a></sup>';
-        	}, $html);
+
+    	}, $html);
 
 		return $html;
 	}
