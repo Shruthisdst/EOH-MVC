@@ -18,6 +18,14 @@ class api extends Controller {
 
 		echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 	}
+
+	public function getWordOfTheDay() {
+
+		date_default_timezone_set('Asia/Kolkata');
+
+		$data = $this->model->getWordOfTheDay(date("Y-n-j"));
+		echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+	}
 }
 
 ?>

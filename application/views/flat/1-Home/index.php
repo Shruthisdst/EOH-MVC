@@ -12,10 +12,28 @@
 <div id="wordOfTheDay" class="container word-of-the-day prelims">
     <div class="row justify-content-center">
         <div class="col-md-9">
-        	<h2>Word of the day | 27 December 2017</h2>
-        	<h1>Ātmaprabodha Upaniṣad</h1>
-        	<p>This is a small Upaniṣad belonging to the Ṛgveda. The first part is in prose and the rest in verses. The prose version appears like a condensation of the Nārāyaṇa Upaniṣad and deals with the supremacy of Nārāyaṇa and the aṣṭākṣarī (eight-syllabled) mantra.</p>
-    		<p class="see-more"><a href="#">read on...</a></p>
+        	<h2>&nbsp;</h2>
+        	<h1>&nbsp;</h1>
+        	<div class="description">&nbsp;</div>
+    		<p class="see-more"><a href="#"></a></p>
     	</div>
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    // Word of the day
+
+    $.get( '<?=BASE_URL?>api/getWordOfTheDay', function( data ) {
+        
+        data = JSON.parse(data);
+        
+        $('.word-of-the-day h2').html('Word of the day | ' + data['date']);
+        $('.word-of-the-day h1').html(data['word']);
+        $('.word-of-the-day div.description').html(data['description']);
+ 
+        $('.word-of-the-day p.see-more a').attr('href', '<?=BASE_URL?>describe/word/' + data['word']);
+        $('.word-of-the-day p.see-more a').html('read on...');
+    });
+});
+</script>
