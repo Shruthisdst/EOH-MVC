@@ -208,6 +208,17 @@
 	padding: 15px;
 	color: #1565C0;
 }
+#prevNextWord{
+	text-align: right;
+}
+#prevNextWord a {
+	color: #1565C0;
+	padding: 0 10px;
+	text-decoration: none;
+}
+#prevNextWord span {
+	padding: 0 10px;
+}
 /*.word.search div.head-word, 
 .word.search div.head-word a, 
 .word.search div.head-word a span{

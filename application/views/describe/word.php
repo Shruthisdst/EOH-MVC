@@ -1,6 +1,7 @@
 <div class="container dynamic-page" id="describeWord">
     <div class="row">
 		<div class="col-md-12">
+			<p id="prevNextWord">&nbsp;</p>
 <?php foreach ($data as $row) { ?>
 			<div class="word">
 				<?php if($row['word']) { ?><div class="head-word"><?=$row['word']?></div><?php } ?>
@@ -16,6 +17,22 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
+	// Next and previous links ajax requests
+	var word = $('.word div.head-word').html();
+	$.get( '<?=BASE_URL?>api/getNeighbours/' + word, function( data ) {
+		
+		data = JSON.parse(data);
+		
+		var prevNextContent = '';
+
+		prevNextContent += (data['prev']) ? '<a href="<?=BASE_URL?>describe/word/' + data['prev'] + '">&lt; prev</a>' : '<span>&lt; prev</span>';
+		prevNextContent += ' | ';
+		prevNextContent += (data['next']) ? '<a href="<?=BASE_URL?>describe/word/' + data['next'] + '">next &gt;</a>' : '<span>next &gt;</span>';
+		
+		$('#prevNextWord').html(prevNextContent);
+	});
+
+	// Word highlighting
     var searchText = decodeURIComponent(getUrlParameter('search'));
 
     var html = $('.word .description').html();
