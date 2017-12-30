@@ -12,8 +12,8 @@ $searchTextRegex = $viewHelper->getRegexText($searchText);
 <?php foreach ($data['match'] as $row) { ?>
         <div class="col-md-6">
             <div class="word search">
-                <?php if($row['word']) { ?><div class="head-word"><a href="<?=BASE_URL?>describe/word/<?=$row['word']?>"><?=$viewHelper->highlight($row['word'], $searchText)?></a></div><?php } ?>
-                <?php if($row['wordNote']) { ?><div class="head-word-note"><?=$row['wordNote']?></div><?php } ?>
+                <?php if($row['word']) { ?><h1 class="head-word"><a href="<?=BASE_URL?>describe/word/<?=$row['word']?>"><?=$viewHelper->highlight($row['word'], $searchText)?></a></h1><?php } ?>
+                <?php if($row['wordNote']) { ?><h3 class="head-word-note"><?=$row['wordNote']?></h3><?php } ?>
                 <p class="see-more"><a href="<?=BASE_URL?>describe/word/<?=$row['word']?>">More...</a></p>      
             </div>
         </div>
@@ -26,8 +26,8 @@ $searchTextRegex = $viewHelper->getRegexText($searchText);
 <?php foreach ($data['descriptionMatch'] as $row) { ?>
         <div class="col-md-12">
             <div class="word search in-description">
-                <?php if($row['word']) { ?><div class="head-word"><a href="<?=BASE_URL?>describe/word/<?=$row['word']?>"><?=$row['word']?></a></div><?php } ?>
-                <?php if($row['wordNote']) { ?><div class="head-word-note"><?=$row['wordNote']?></div><?php } ?>
+                <?php if($row['word']) { ?><h1 class="head-word"><a href="<?=BASE_URL?>describe/word/<?=$row['word']?>"><?=$row['word']?></a></h1><?php } ?>
+                <?php if($row['wordNote']) { ?><h3 class="head-word-note"><?=$row['wordNote']?></h3><?php } ?>
                 <?php if($row['description']) { ?><div class="description"><?=$row['description']?></div><?php } ?>
                 <p class="see-more"><a href="<?=BASE_URL?>describe/word/<?=$row['word']?>?search=<?=$searchTextRegex?>">More...</a></p>      
             </div>
@@ -39,8 +39,6 @@ $searchTextRegex = $viewHelper->getRegexText($searchText);
 $(document).ready(function() {
 
     var searchText = $('#searchText').html();
-
-    console.log(searchText);
 
     $('.word.search.in-description .description').each(function(){
 

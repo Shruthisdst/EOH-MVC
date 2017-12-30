@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', 'http://192.168.1.201/eoh-mvc/');
+define('BASE_URL', 'http://localhost/eoh-mvc/');
 define('PUBLIC_URL', BASE_URL . 'public/');
 define('XML_SRC_URL', BASE_URL . 'md-src/xml/');
 define('PHOTO_URL', PUBLIC_URL . 'Photos/');

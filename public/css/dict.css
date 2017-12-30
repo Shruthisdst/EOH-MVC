@@ -1,8 +1,3 @@
-@font-face {
- font-family: 'GentiumPlus-R';
- src: url('GentiumPlus-R.ttf');
-}
-
 /*styles for Dictionary words*/
 .multi-column {
 	column-rule: 1px solid #ddd;
@@ -74,23 +69,32 @@
     line-height: 24px;
 	font-weight: 300;
 }
-.word div.head-word{
+.word h1.head-word{
 	color: #1565C0;
 	font-size: 32px;
 	font-weight: 300;
+    line-height: 32px;
 }
-.word div.head-word-note{
+.word h3.head-word-note{
 	font-size: 18px;
 	margin-top: 20px;
+	margin-bottom: 0px;
+	font-weight: 300;
+    line-height: 24px;
 }
-.word div.alias-word{
+.word h2.alias-word{
 	margin-top: 20px;
+	margin-bottom: 0px;
 	font-size: 28px;
 	font-weight: 300;
+    line-height: 24px;
 }
-.word div.alias-word-note{
+.word h3.alias-word-note{
 	font-size: 18px;
 	margin-top: 20px;
+	margin-bottom: 0px;
+	font-weight: 300;
+    line-height: 24px;
 }
 .word div.description{
 	border-top: 1px solid #ddd;
@@ -224,10 +228,3 @@
 #prevNextWord span {
 	padding: 0 10px;
 }
-/*.word.search div.head-word, 
-.word.search div.head-word a, 
-.word.search div.head-word a span{
-	max-width: 300px;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}*/

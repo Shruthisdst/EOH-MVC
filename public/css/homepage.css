@@ -1,5 +1,5 @@
 .flat-page, .dynamic-page{
-    margin-top: 140px;
+    margin-top: 80px;
 }
 .dynamic-page{
     min-height: 75vh;
@@ -77,6 +77,13 @@
 .word-of-the-day h2{
     text-align: center;
 }
+.word-of-the-day h2 span{
+    display: block;
+}
+.word-of-the-day h2 span:first-of-type:after{
+    display: block;
+    content: '—';
+}
 .word-of-the-day h1{
     margin-top: 40px;
     margin-bottom: 40px;
@@ -111,10 +118,11 @@
     color: #D50000;
     font-weight: 400;
     border-radius: 0;
-    border-bottom: 1px solid #ddd;
 }
 .about-content .tab-pane .prelims{
     padding-top: 40px;
+    padding-left: 0;
+    padding-right: 0;
 }
 .dedication h2, .author h2{
     text-align: center;
@@ -132,6 +140,9 @@
 }
 
 @media(min-width:768px) {
+    .flat-page, .dynamic-page{
+        margin-top: 140px;
+    }
     .banner .overlay {
         padding: 40px;
         border-radius: 10px;
@@ -158,6 +169,22 @@
     }
     .dedication h2, .author h2{
         text-align: left;
+    }
+    .about-tabs.nav-tabs .nav-link.active,
+    .about-tabs.nav-tabs .nav-link:focus,
+    .about-tabs.nav-tabs .nav-link:hover {
+        border-bottom: 1px solid #ddd;
+    }
+    .about-content .tab-pane .prelims{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .word-of-the-day h2 span{
+        display: inline;
+    }
+    .word-of-the-day h2 span:first-of-type:after{
+        display: inline;
+        content: ' | ';
     }
 }
 

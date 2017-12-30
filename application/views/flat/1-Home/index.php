@@ -28,7 +28,7 @@ $(document).ready(function() {
         
         data = JSON.parse(data);
         
-        $('.word-of-the-day h2').html('Word of the day | ' + data['date']);
+        $('.word-of-the-day h2').html('<span>Word of the day</span> <span>' + data['date'] + '</span>');
         $('.word-of-the-day h1').html(data['word']);
         $('.word-of-the-day div.description').html(data['description']);
  

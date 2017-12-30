@@ -51,7 +51,7 @@
 }
 .navbar .navbar-nav > li > a:hover,
 .navbar .navbar-nav > li > a:focus {
- 	color: #e5ae47
+ 	color: #1565C0;
 }
 .navbar-nav .dropdown-menu {
 	box-shadow: 2px 2px 10px rgba(0,0,0,0.175);
