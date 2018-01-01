@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('.about-tabs a[data-toggle="tab"]').on('shown.bs.tab', function (event) {
 
         var jumpLoc = $('.about-tabs').offset().top - $('#mainNavBar').height() - 50;
-        $("body").animate({scrollTop: jumpLoc}, 500);
+        $("html, body").animate({scrollTop: jumpLoc}, 500);
     });
 
     $('.goTo').on('click', function (event) {
@@ -23,7 +23,8 @@ $(document).ready(function() {
         var destination = $(this).attr('data-destination');
 
         var jumpLoc = $(destination).offset().top - $('#mainNavBar').height() - 50;
-        $("body").animate({scrollTop: jumpLoc}, 500);
+        console.log(jumpLoc);
+        $("html, body").animate({scrollTop: jumpLoc}, 500);
     });
 
     $(function () {

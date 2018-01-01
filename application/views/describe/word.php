@@ -44,7 +44,7 @@ $(document).ready(function() {
     var highlight = $('.highlight');
     if(highlight.length) {
 		var jumpLoc = $('.highlight').offset().top - $('#mainNavBar').height() - 50;
-		$("body").animate({scrollTop: jumpLoc}, 500);
+		$("html, body").animate({scrollTop: jumpLoc}, 500);
 	}
 });
 </script>
