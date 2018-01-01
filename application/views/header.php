@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111750753-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-111750753-1');
+    </script>
+
     <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
@@ -37,6 +49,7 @@
     <link rel="icon" type="image/png" href="<?=PUBLIC_URL?>images/favicon.ico">
 </head>
 <body>
+
     <!-- Navigation
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <nav id="mainNavBar" class="navbar navbar-light navbar-expand-lg fixed-top">
