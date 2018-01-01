@@ -38,3 +38,16 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	var columnCount = 2;
+	var width = $(document).outerWidth();
+	if (width > 1200) columnCount = 6;
+	else if (width > 992) columnCount = 5;
+	else if (width > 768) columnCount = 4;
+	else if (width > 576) columnCount = 3;
+
+	$('.multi-column').columnize({ columns: columnCount });
+});
+</script>

@@ -1,5 +1,16 @@
 /*styles for Dictionary words*/
-.multi-column {
+
+/*Due to a ug in ios < 10.3, column-count is currently not used*/
+.multi-column .column:not(:last-of-type) {
+	border-right: 1px solid #ddd;
+	padding-right: 10px;
+}
+.multi-column .column:not(:first-of-type) {
+	padding-left: 10px;
+}
+
+/*Eventually column-count should be used*/
+/*.multi-column {
 	column-rule: 1px solid #ddd;
 	-webkit-column-count: 2;
 	-moz-column-count: 2;
@@ -32,7 +43,7 @@
 		-moz-column-count: 6;
 		column-count: 6;
 	}
-}
+}*/
 
 .alphabet{
 	margin-bottom: 30px;
