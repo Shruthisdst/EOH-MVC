@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/viewer.css?v=1.0">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/navbar.css?v=1.0">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/homepage.css?v=1.0">
+    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/homepage.css?v=1.1">
     <link rel="stylesheet" href="<?=PUBLIC_URL?>css/dict.css?v=1.2">
 
     <!-- Fonts

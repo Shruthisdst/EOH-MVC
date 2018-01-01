@@ -22,7 +22,7 @@
 		<a class="col-md-2 nav-item nav-link" id="nav-blessings-tab" data-toggle="tab" href="#nav-blessings" role="tab" aria-controls="nav-blessings" aria-selected="false">Blessings</a>
 		<a class="col-md-2 nav-item nav-link" id="nav-preface-tab" data-toggle="tab" href="#nav-preface" role="tab" aria-controls="nav-preface" aria-selected="false">Preface</a>
 		<a class="col-md-2 nav-item nav-link" id="nav-acknowledgement-tab" data-toggle="tab" href="#nav-acknowledgement" role="tab" aria-controls="nav-acknowledgement" aria-selected="false">Acknowledgement</a>
-		<a class="col-md-2 nav-item nav-link" id="nav-sponsors-tab" data-toggle="tab" href="#nav-sponsors" role="tab" aria-controls="nav-sponsors" aria-selected="false">Sponsors</a>
+		<a class="col-md-2 nav-item nav-link" id="nav-digital-edition-tab" data-toggle="tab" href="#nav-digital-edition" role="tab" aria-controls="nav-digital-edition" aria-selected="false">Digital Edition</a>
 	</nav>
 	<div class="tab-content about-content" id="nav-tabContent">
 		<div class="tab-pane fade show active" id="nav-dedication" role="tabpanel" aria-labelledby="nav-dedication-tab">
@@ -167,14 +167,18 @@
 		        </div>
 		    </div>
 		</div>
-		<div class="tab-pane fade" id="nav-sponsors" role="tabpanel" aria-labelledby="nav-sponsors-tab">
-			<!-- Sponsors -->
+		<div class="tab-pane fade" id="nav-digital-edition" role="tabpanel" aria-labelledby="nav-digital-edition-tab">
+			<!-- Digital Edition -->
 			<div class="container preface prelims">
 			    <div class="row justify-content-center">
 			        <div class="col-md-12">
-				        <img src="<?=PUBLIC_URL?>images/ihar-logo.png" />
-				        <h2>Sponsors for the digital edition</h2>
-				        <p>Indian History Awareness and Research (IHAR) is an organization working to revive and develop a contemporary understanding of the knowledge and values of Indic heritage and civilization through disciplined inquiry and research.</p>
+				        <img class="my-3" src="<?=PUBLIC_URL?>images/sriranga-logo.png" />
+				        <h2>Application Developemnt</h2>
+				        <p>This web application is designed, developed, hosted and maintained by <a href="http://www.srirangadigital.com/" target="_blank">Sriranga Digital Software Technologies Private Limited.</a></p>
+			
+				        <img class="my-3" src="<?=PUBLIC_URL?>images/ihar-logo.png" />
+				        <h2>Sponsors</h2>
+				        <p><a href="http://www.iharweb.org/" target="_blank">Indian History Awareness and Research (IHAR)</a> is an organization working to revive and develop a contemporary understanding of the knowledge and values of Indic heritage and civilization through disciplined inquiry and research.</p>
 				        <p>IHAR is focused on</p>
 				        <p>a) Reviving, Archiving, Digitizing and Publishing Classic and Contemporary Texts and Manuscripts;</p>
 				        <p>b) Organizing or Conducting public discussions, workshops, forums, panels and lectures;</p>
