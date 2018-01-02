@@ -35,11 +35,14 @@ $(document).ready(function() {
 	// Word highlighting
     var searchText = decodeURIComponent(getUrlParameter('search'));
 
-    var html = $('.word .description').html();
-    var re = new RegExp("\\b" + '(' + searchText + ')' + "\\b", "gi");
-    html = html.replace(re, '<span class="highlight">' + "$1" + '</span>');
+    $('.word .description').each(function(){
 
-    $('.word .description').html(html);
+	    var html = $(this).html();
+	    var re = new RegExp("\\b" + '(' + searchText + ')' + "\\b", "gi");
+	    html = html.replace(re, '<span class="highlight">' + "$1" + '</span>');
+    	$(this).html(html);
+    });
+
 
     var highlight = $('.highlight');
     if(highlight.length) {
