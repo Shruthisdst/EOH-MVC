@@ -2,7 +2,7 @@
 
 class Model {
 
-	protected $elementCount = 0;
+	protected $elementCount;
 
 	public function __construct() {
 
@@ -210,20 +210,23 @@ class Model {
 
 	public function xmlToHtml($html, $word) {
 
+		$this->elementCount = 0;
+
 		// Reform refs
 		$html = str_replace('<ref href="', '<a href="' . BASE_URL . 'describe/word/', $html);
 		$html = str_replace('</ref>', '</a>', $html);
 
 		// Handle figures
-		$html = preg_replace_callback('/<figure>(<figcaption\/>|<figcaption>(.*?)<\/figcaption>)<\/figure>/', function ($matches) use($word) {
+		$html = preg_replace_callback('/(<figure>|<figure src="(.*?)">)(<figcaption\/>|<figcaption>(.*?)<\/figcaption>)<\/figure>/', function ($matches) use($word) {
 			
-			$caption = (isset($matches[2])) ? $matches[2] : $word;
+			$caption = (isset($matches[4])) ? $matches[4] : $word;
 			$suffix = (++$this->elementCount > 1) ? '_' . $this->elementCount : '';
+			$figSrc = (isset($matches[2]) && $matches[2]) ? $matches[2] : $word . $suffix . '.jpg';
         	
         	$figHtml = '';
-        	$figHtml .= '<figure class="figure"><img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $word . $suffix . '.jpg" src="' . PUBLIC_URL . 'images/thumbs/' . $word . $suffix . '.jpg" alt="' . $caption . '">';
+        	$figHtml .= '<figure class="figure"><img class="img-fluid" data-original="' . PUBLIC_URL . 'images/main/' . $figSrc . '" src="' . PUBLIC_URL . 'images/thumbs/' . $figSrc . '" alt="' . $caption . '">';
 
-			if(isset($matches[2])) $figHtml .=	'<figcaption class="figure-caption">' . $caption . '</figcaption>';
+			if(isset($matches[4])) $figHtml .=	'<figcaption class="figure-caption">' . $caption . '</figcaption>';
 
 			$figHtml .=	'</figure>';
 			return $figHtml;
